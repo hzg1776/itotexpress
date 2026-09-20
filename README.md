@@ -1,73 +1,44 @@
-# ITOT Express Professional Website
+# IT/OT Express LLC
 
-This repository contains a single-page professional portfolio website that highlights services, experience, and project case studies. The site is built with semantic HTML, responsive CSS, and a small JavaScript helper to keep the copyright year current.
+Website project for a platform-agnostic technology consulting business based in Holly Springs, North Carolina, serving business owners across the state.
 
-## Structure
+**Repository status:** This is an earlier single-page template. The replacement website is being developed separately as an unpublished draft and is not included here. The template's sample experience, testimonials, project results, and contact details are placeholders—not verified company claims.
 
-- `index.html` &mdash; main landing page for the portfolio
-- `styles.css` &mdash; global styles, layout, and responsive rules
-- `script.js` &mdash; lightweight enhancement to update the footer year automatically
+## Website direction
 
-## Customization checklist
+The replacement is organized around three initial offers:
 
-1. Update personal details in `index.html`
-   - Replace **Your Name**, title, and tagline in the header
-   - Update stats, experience, projects, and testimonials to match your story
-   - Swap contact links (email, LinkedIn, GitHub) with your actual URLs
-2. Optional: adjust theme colors or typography in `styles.css`
-3. Commit any content updates so the production site stays in sync
+- **Network audits:** understand the network, identify problems, and prioritize improvements.
+- **Technical documentation:** create or clean up network, rack, cabling, and operating documentation.
+- **AI analysis:** assess where AI and automation fit a business workflow, including model, hardware, and architecture choices.
 
-## Preview locally
+Conventional IT/OT services come first, followed by a dedicated AI services section.
 
-There are two quick ways to see the site in action before deploying:
+## Current source
 
-1. **Open the file directly** – double-click `index.html` (or drag it into a browser window) and the page will render immediately.
-2. **Run a temporary local server** – this mimics how the files will behave in AWS and is useful when you start adding assets.
+| File | Responsibility |
+| --- | --- |
+| [index.html](index.html) | Single-page layout and template content |
+| [styles.css](styles.css) | Typography, layout, and responsive styling |
+| [script.js](script.js) | Footer year enhancement |
 
-   ```bash
-   python3 -m http.server 8000
-   ```
+Built with HTML, CSS, and JavaScript. No package installation or build step is required. The current template loads its font from Google Fonts.
 
-   After the server starts, visit [http://localhost:8000](http://localhost:8000) in your browser. You can stop the server anytime with `Ctrl+C`.
+## Preview the existing template
 
-## Deploy to Amazon S3 static hosting
+Open `index.html` in a browser. If Python 3 is already installed, you can also serve the folder locally:
 
-You already have an S3 bucket provisioned. Follow these steps to deploy the site:
+```powershell
+python -m http.server 8000 --bind 127.0.0.1
+```
 
-1. **Configure the bucket for website hosting (one time):**
-   ```bash
-   aws s3 website s3://<your-bucket-name>/ --index-document index.html --error-document index.html
-   ```
-2. **Set a public-read bucket policy (one time):**
-   Replace `<your-bucket-arn>` with the ARN from the S3 console.
-   ```json
-   {
-     "Version": "2012-10-17",
-     "Statement": [
-       {
-         "Sid": "PublicReadGetObject",
-         "Effect": "Allow",
-         "Principal": "*",
-         "Action": "s3:GetObject",
-         "Resource": "<your-bucket-arn>/*"
-       }
-     ]
-   }
-   ```
-   Apply the policy via the S3 console or AWS CLI:
-   ```bash
-   aws s3api put-bucket-policy --bucket <your-bucket-name> --policy file://bucket-policy.json
-   ```
-3. **Upload the website files:**
-   ```bash
-   aws s3 sync . s3://<your-bucket-name>/ --exclude "*" --include "index.html" --include "styles.css" --include "script.js"
-   ```
-4. **Invalidate CloudFront (optional):** If the bucket is behind a CloudFront distribution, run an invalidation to serve the latest assets.
+Visit [localhost:8000](http://localhost:8000), then stop the server with `Ctrl+C`.
 
-5. **Access the site:**
-   - Use the S3 static website endpoint: `http://<your-bucket-name>.s3-website-<region>.amazonaws.com`
-   - Or your custom domain if configured via Route 53 / CloudFront
+## Review before release
 
-## Ongoing updates
+- Replace all sample claims, career history, testimonials, and contact information with approved content.
+- Verify the contact form actually delivers inquiries; markup alone does not establish a working service.
+- Check navigation, keyboard access, small-screen layouts, and page metadata.
+- Confirm the hosting destination and review the final version before publishing.
 
-Whenever you change the content, repeat step 3 to sync updated files. Consider automating deployment through CI/CD for more complex setups.
+No live preview is linked here because the current hosting destination has not been verified for this repository. Earlier generic S3 instructions have been removed.
