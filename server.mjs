@@ -47,7 +47,8 @@ export async function createSiteServer({directory, port=4180, published=false}={
 }
 
 if(process.argv[1] && path.resolve(process.argv[1])===fileURLToPath(import.meta.url)) {
-  const port=Number(process.env.ITOT_PORT || 4180);
+  const portArgument=process.argv.find(value=>value.startsWith('--port='));
+  const port=Number(portArgument ? portArgument.slice(7) : process.env.ITOT_PORT || 4180);
   if(!Number.isInteger(port)||port<1024||port>65535) throw Error('ITOT_PORT must be 1024–65535');
   const published=process.argv.includes('--published');
   const directory=fileURLToPath(new URL(published?'./release':'./candidate',import.meta.url));
