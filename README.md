@@ -1,73 +1,40 @@
-# ITOT Express Professional Website
+# IT/OT Express LLC website
 
-This repository contains a single-page professional portfolio website that highlights services, experience, and project case studies. The site is built with semantic HTML, responsive CSS, and a small JavaScript helper to keep the copyright year current.
+Five-page static consulting website for North Carolina business owners. Network audits and technical documentation lead the service presentation, followed by AI analysis and automation.
 
-## Structure
+## Status
 
-- `index.html` &mdash; main landing page for the portfolio
-- `styles.css` &mdash; global styles, layout, and responsive rules
-- `script.js` &mdash; lightweight enhancement to update the footer year automatically
+Unpublished review package. Business inquiries use hello@itotexpress.com; the owner confirmed the send-and-reply test. There are no personal names, portraits or LinkedIn links. The site provides an email link, with no web form or booking system. No hosting service, tunnel route or automated deployment is installed by this package.
 
-## Customization checklist
+## Local review
 
-1. Update personal details in `index.html`
-   - Replace **Your Name**, title, and tagline in the header
-   - Update stats, experience, projects, and testimonials to match your story
-   - Swap contact links (email, LinkedIn, GitHub) with your actual URLs
-2. Optional: adjust theme colors or typography in `styles.css`
-3. Commit any content updates so the production site stays in sync
+Requires an existing Node.js 22 or newer installation; no npm dependencies or build-tool installation is needed.
 
-## Preview locally
+```powershell
+node service-pages.mjs
+node sample-page.mjs
+node check-site.mjs
+node prepare-site.mjs
+node --test server.test.mjs
+node server.mjs
+```
 
-There are two quick ways to see the site in action before deploying:
+Open http://127.0.0.1:4180/ . Stop with Ctrl+C. The candidate stays noindex and the server binds only to loopback. It serves only the candidate artifact, not the working directory.
 
-1. **Open the file directly** – double-click `index.html` (or drag it into a browser window) and the page will render immediately.
-2. **Run a temporary local server** – this mimics how the files will behave in AWS and is useful when you start adding assets.
+`dist/index.html` is the authored homepage. Service and sample generators share its navigation, contact section and footer. Demo modules are included in `dist/`; they use fictional data and do not call an AI model or external service.
 
-   ```bash
-   python3 -m http.server 8000
-   ```
+The artifact generator refuses to overwrite an existing candidate/release. Move the previous artifact to a reviewed backup location before rebuilding. Do not keep old versions inside the public artifact folder.
 
-   After the server starts, visit [http://localhost:8000](http://localhost:8000) in your browser. You can stop the server anytime with `Ctrl+C`.
+## Release requirements
 
-## Deploy to Amazon S3 static hosting
+1. Business email is implemented and owner-tested.
+2. The owner retired the old portal; its DNS connections were removed. The new server returns 410 for its old paths.
+3. Review the final website revision through the owner's GitHub and merge process.
+4. Run `node prepare-site.mjs --release`. This generates a local indexable artifact; it does not publish anything.
+5. Configure persistent Windows startup/recovery and the Cloudflare Tunnel separately. Owner-controlled activation must serve only `release/`, through `node server.mjs --published` on loopback port 4180. `StartWebsite.ps1` is a launcher, not a task/service installer.
+6. Verify reboot recovery, external HTTPS availability, redirects, sitemap, robots directives and contact behavior before calling the site production ready.
+7. Use the existing Search Console property to inspect the public release and submit its sitemap. Track future results against the old-site baseline; do not attribute historical traffic to this unpublished version.
 
-You already have an S3 bucket provisioned. Follow these steps to deploy the site:
+Canonical production origin: `https://itotexpress.com`. The server redirects `www` to the apex when run in published mode. Cloudflare must enforce HTTPS. Preserve existing Zoho email DNS records. Use a fresh website tunnel rather than the retired portal configuration. Keep tunnel credentials outside the repository.
 
-1. **Configure the bucket for website hosting (one time):**
-   ```bash
-   aws s3 website s3://<your-bucket-name>/ --index-document index.html --error-document index.html
-   ```
-2. **Set a public-read bucket policy (one time):**
-   Replace `<your-bucket-arn>` with the ARN from the S3 console.
-   ```json
-   {
-     "Version": "2012-10-17",
-     "Statement": [
-       {
-         "Sid": "PublicReadGetObject",
-         "Effect": "Allow",
-         "Principal": "*",
-         "Action": "s3:GetObject",
-         "Resource": "<your-bucket-arn>/*"
-       }
-     ]
-   }
-   ```
-   Apply the policy via the S3 console or AWS CLI:
-   ```bash
-   aws s3api put-bucket-policy --bucket <your-bucket-name> --policy file://bucket-policy.json
-   ```
-3. **Upload the website files:**
-   ```bash
-   aws s3 sync . s3://<your-bucket-name>/ --exclude "*" --include "index.html" --include "styles.css" --include "script.js"
-   ```
-4. **Invalidate CloudFront (optional):** If the bucket is behind a CloudFront distribution, run an invalidation to serve the latest assets.
-
-5. **Access the site:**
-   - Use the S3 static website endpoint: `http://<your-bucket-name>.s3-website-<region>.amazonaws.com`
-   - Or your custom domain if configured via Route 53 / CloudFront
-
-## Ongoing updates
-
-Whenever you change the content, repeat step 3 to sync updated files. Consider automating deployment through CI/CD for more complex setups.
+The server tests exercise local HTTP handling with the noindex candidate; they do not prove that the tunnel, Windows startup or public website is working.
