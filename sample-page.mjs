@@ -7,6 +7,9 @@ const title = 'Sample Network Review & Document Lookup | IT/OT Express LLC';
 const description = 'Fictional network review and documentation samples, with an interactive document-lookup prototype from IT/OT Express LLC.';
 const schema = {'@context':'https://schema.org','@type':'WebPage',name:title,description,publisher:{'@type':'Organization',name:'IT/OT Express LLC'}};
 const head = home.slice(0,home.indexOf('<body>'))
+  .replace(/\s*<script type="application\/ld\+json" id="site-name-schema">[\s\S]*?<\/script>/, '')
+  .replace(/<link rel="canonical"[^>]*>/, '<link rel="canonical" href="https://itotexpress.com/samples.html">')
+  .replace(/<meta property="og:url"[^>]*>/, '<meta property="og:url" content="https://itotexpress.com/samples.html">')
   .replace(/<title>.*?<\/title>/,`<title>${title.replaceAll('&','&amp;')}</title>`)
   .replace(/<meta name="description" content="[^"]*">/,`<meta name="description" content="${description}">`)
   .replace(/<meta property="og:title" content="[^"]*">/,`<meta property="og:title" content="${title.replaceAll('&','&amp;')}">`)

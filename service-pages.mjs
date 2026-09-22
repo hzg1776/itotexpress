@@ -68,6 +68,8 @@ const pages = [
     preparationNote: 'You do not need complete records to discuss the work. Missing documentation can be part of the scope.',
     outputHeading: 'Findings and recommendations',
     output: 'The agreed report and drawings record findings, unresolved questions and recommended actions. Repairs, equipment replacement and configuration changes are scoped separately.',
+    extra: '<section id="industrial-scope" class="service-block" aria-labelledby="industrial-heading" tabindex="-1"><p class="eyebrow">OFFICE + INDUSTRIAL NETWORKS</p><h2 id="industrial-heading">Understand your IT and OT connections</h2><p>For shops, plants and warehouses, the review can include agreed PLCs, HMIs, cameras and other networked equipment, alongside the office network.</p><div class="scope-grid"><article><h3>Agree on the equipment</h3><p>Define which devices, areas and records are in scope. Record access limits and anything that cannot be verified.</p></article><article><h3>Review the connections</h3><p>Document how office and machine networks connect and identify separation questions for your team and vendors.</p></article><article><h3>Hand over the findings</h3><p>Receive drawings, evidence and open questions. Scanning, configuration changes and work that could affect production require separate planning and authorization.</p></article></div></section>',
+
     faqs: [
       ['What is the difference between a network audit and troubleshooting?', 'A network audit is a review of your setup and records. Troubleshooting looks for the cause of a specific problem, such as dropped connections. A project can include both if we agree on that before starting.'],
       ['Can you review Wi-Fi without replacing all our equipment?', 'A Wi-Fi review can begin with the existing setup and the problems being reported. Equipment replacement is a possible recommendation, not an assumption made before the review.'],
@@ -115,21 +117,21 @@ const pages = [
   },
   {
     file: 'ai-analysis.html',
-    label: 'AI assessments',
+    label: 'AI & automation',
     title: 'AI Analysis & Consulting in NC | IT/OT Express LLC',
     description: 'AI assessments covering workflows, model and software options, hardware requirements, costs, privacy and evaluation criteria. Serving North Carolina.',
-    heading: 'AI assessments and tool evaluation',
-    introduction: 'We help you decide whether AI or automation makes sense for the work you do. Our assessments compare tools, equipment needs, costs and privacy considerations before you commit to a system.',
+    heading: 'Practical AI, from assessment to a scoped prototype',
+    introduction: 'Find a useful starting point for a document assistant, custom agent or routine workflow. We compare approaches and define how to test the results before you commit to a larger system.',
     takeaway: 'A written assessment of requirements and options, with recommendations and a trial scope where appropriate.',
     start: ['Start with the work you want to improve', 'We look at how the task is handled today and what a useful improvement would mean for your team. That gives us a basis for comparing options and checking whether the results are good enough.'],
     interest: 'ai',
-    cta: 'Discuss an AI assessment',
+    cta: 'Discuss an AI project',
     sectionHeading: 'What we look at',
     sectionIntro: 'The assessment covers the workflow, available data, integration requirements and evaluation method. Rule-based automation can be considered alongside AI.',
     topics: [
       ['Workflow and oversight', 'How your team does the work, which exceptions matter and where someone needs to check or approve the results.'],
       ['Your information and current tools', 'The information available, where it is stored and how an AI tool could work with your existing software.'],
-      ['Software, equipment and cost', 'Suitable tools and models, the hardware they need and the costs of running them locally or using an online service.']
+      ['Model evaluation and hardware', 'Compare models on representative tasks, including answer quality, response time and cost. Assess hardware sizing and local or cloud architecture against your requirements.']
     ],
     preparationHeading: 'Information to provide',
     preparation: [
@@ -141,7 +143,7 @@ const pages = [
     preparationNote: 'Product selection and hardware requirements are part of the assessment; purchases are not required to discuss the project.',
     outputHeading: 'Assessment report and trial scope',
     output: 'Depending on the agreed scope, the report documents requirements, data gaps, software and hardware options, estimated costs and recommendations. A proposed trial specifies test cases, evaluation criteria and approval points. Building or deploying a system is separate work.',
-    extra: '<section class="service-block" aria-labelledby="use-cases-heading"><h2 id="use-cases-heading">Example use cases</h2><p>Document search, routine business reports, order and shipping-document workflows, and staff training tools.</p><p>Each assessment identifies data sources, access requirements and approval steps. Changes to orders, records or payments require separate controls from read-only reporting.</p></section>',
+    extra: '<section class="service-block" aria-labelledby="use-cases-heading"><h2 id="use-cases-heading">Start with one useful workflow</h2><div class="scope-grid"><article><h3>Document assistants</h3><p>Find information in approved manuals and procedures, show the source and flag missing answers.</p></article><article><h3>Staff guidance and reporting</h3><p>Help teams find procedures, prepare routine reports or turn existing knowledge into training material.</p></article><article><h3>Custom agents and automation</h3><p>Scope repetitive order or shipping-document tasks, with clear permissions, exception handling and human approval.</p></article></div><h3 class="prototype-heading">Then test a small prototype</h3><p>A separately scoped build can test the chosen workflow against agreed examples and difficult cases. The handover records results, limitations, running costs and the requirements for any wider rollout.</p><a class="arrow-link" href="samples.html#lookup-example">Try the fictional document lookup example &rarr;</a></section>',
     faqs: [
       ['Do we need to choose an AI tool first?', 'No. We can compare the tools and equipment for you. Start with the task, the information it uses and any limits on budget or privacy.'],
       ['Can we compare AI on our computers with online services?', 'Yes. We can compare tools that run on your equipment with services accessed online. The review considers the task, privacy, equipment and ongoing costs.'],
@@ -168,7 +170,7 @@ const header = match(/<header class="site-header">[\s\S]*?<\/header>/)
   .replace('href="#about"', 'href="index.html#about"');
 const contact = match(/<section id="contact"[\s\S]*?<\/section>/);
 const footer = match(/<footer class="site-footer">[\s\S]*?<\/footer>/).replace('href="#main"', 'href="index.html"');
-const baseHead = home.slice(0, home.indexOf('<body>'));
+const baseHead = home.slice(0, home.indexOf('<body>')).replace(/\s*<script type="application\/ld\+json" id="site-name-schema">[\s\S]*?<\/script>/, '');
 
 for (const page of pages) {
   const schema = {
@@ -178,6 +180,8 @@ for (const page of pages) {
     areaServed: {'@type':'State', name:'North Carolina'}
   };
   const head = baseHead
+    .replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="https://itotexpress.com/${page.file}">`)
+    .replace(/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="https://itotexpress.com/${page.file}">`)
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${escape(page.title)}</title>`)
     .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${escape(page.description)}">`)
     .replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${escape(page.title)}">`)

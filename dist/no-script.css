@@ -1,0 +1,2 @@
+/* Keep all navigation links available when JavaScript is disabled. */
+.site-header #site-nav { display: flex; }

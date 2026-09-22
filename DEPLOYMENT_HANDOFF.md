@@ -2,21 +2,19 @@
 
 ## Proposed update
 
-The six-page website now uses the approved futuristic branding, Technology built around your business headline, customer-facing service copy, responsive navigation and a direct Zoho contact-form link with an email alternative. The website-development page is included in the sitemap. Fictional examples remain labeled.
+Replace the prior design with the reviewed six-page cream-and-blue site: shorter homepage, conventional services followed by a dedicated AI section, IBM Plex Sans Semibold headings, local fonts, lossless WebP logos with PNG fallbacks, accessible mobile navigation and gzip text responses. Existing Zoho form and business email links are retained. Examples are clearly fictional.
 
-## Verification completed locally
+## Local checks
 
-- Six source pages and 181 local references pass the static checker.
-- Both server tests pass, covering routes, redirects, retired paths, request restrictions and candidate isolation.
-- An indexable release artifact is built locally; final release checks are recorded in RELEASE_CHECKS.json.
-- No deployment, production access, DNS changes or service restart has been performed.
+Five Node tests and six source pages / 224 local references pass. All six pages were checked at 390px and 1440px with no horizontal overflow. The mobile menu opens and closes with Escape. Indexable release checks and exact artifact SHA-256 hashes are recorded in RELEASE_CHECKS.json. These checks do not establish production availability or current inbox delivery.
 
 ## Human execution
 
-1. Review and merge the pull request, then record its merged commit SHA.
-2. In a separate website-only checkout, fetch and check out that exact merged SHA. Run the README checks and build a fresh release.
-3. Using the existing owner-controlled hosting process, preserve the current deployed release and server as a rollback copy outside the public web root. The prior launch record identifies C:/ITOTExpress/site and loopback port 4181; the owner must confirm these still apply before proceeding.
-4. During the update, the owner stops the existing website service, replaces its release directory with the complete approved release and updates server.mjs from the same revision. Do not mix artifacts from different revisions. Keep the previous files intact for rollback. Keep the hosting port, tunnel and email configuration unchanged.
-5. The owner starts the website service and checks all six public pages, the logo, mobile menu, contact link, sitemap and robots.txt. Check www redirects, a missing-page 404 and the retired portal 410. If any check fails, restore the saved release and server and restart the service.
+1. Review and merge the PR; record its merged commit SHA.
+2. In a separate non-production website-only checkout, fetch and check out that SHA. Run the README verification commands, build a fresh release, and run verify-release.mjs. Compare its generated artifact hashes with the reviewed RELEASE_CHECKS.json.
+3. Confirm the current hosting location, service and port using the established owner-controlled process. Earlier records identify C:/ITOTExpress/site and loopback port 4181; these are historical, not reverified by this review.
+4. Preserve the current deployed release and server.mjs as a rollback copy outside the public web root. Stop the existing website service, replace its release directory with the complete approved release, and update server.mjs from the same revision. The server update supplies font MIME types and gzip; do not mix revisions. Keep hosting port, tunnel, mail configuration and credentials unchanged.
+5. Start the existing service. Check all six public pages, the logo, mobile menu, contact link, robots.txt and sitemap.xml; verify the www redirect, missing-page 404 and retired portal 410. If a check fails, stop the service, restore both the saved release and server, and restart it.
+6. Confirm a test inquiry reaches the intended inbox before relying on the site for leads. Review Google indexing after public availability is confirmed.
 
-This handoff does not authorize agent access to production. Deployment and public verification remain for the owner under the project approval matrix.
+Deployment and production access remain human-controlled under the project rules. This package does not perform a deployment or create new hosting configuration.

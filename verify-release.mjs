@@ -28,10 +28,12 @@ try {
     assert.match(result.body,/Open contact form/);
     assert.match(result.body,/mailto:hello@itotexpress.com/);
     assert.equal(result.headers['x-robots-tag'],undefined);
-    for(const match of result.body.matchAll(/(?:src|href)="([^"#]+)"/g)) {
+    for(const match of result.body.matchAll(/(?:src|srcset|href)="([^"#]+)"/g)) {
       if(!/^(?:https?:|mailto:)/.test(match[1])) assets.add(match[1].split('#')[0]);
     }
   }
+  const css = await readFile(new URL('site.css',root),'utf8');
+  for (const match of css.matchAll(/url\(['"]?([^)'"]+)['"]?\)/g)) assets.add(match[1]);
   for(const path of assets) assert.equal((await request('/'+path)).status,path==='index.html'?308:200,path);
   assert.match((await request('/robots.txt')).body,/Allow: \//);
   assert.equal([...((await request('/sitemap.xml')).body.matchAll(/<loc>/g))].length,6);

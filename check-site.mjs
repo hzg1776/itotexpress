@@ -12,7 +12,10 @@ for (const [name, html] of pages) {
   assert.ok(!/herman|goldstein|linkedin\.com/i.test(html), `${name}: no personal identity or LinkedIn links`);
   assert.doesNotMatch(html, /<iframe\b/, `${name}: contact must not reserve an empty embedded-form panel`);
   assert.equal([...html.matchAll(/class="button form-open-button"/g)].length, 1, `${name}: one primary contact-form link`);
-  assert.match(html, /class="button form-open-button" href="https:\/\/forms\.zohopublic\.com\/helloitote1\/form\/ITOTExpressWebsiteInquiry\/formperma\/Ty7JGh3gF7uQJMt4jV_itqt_8XqnVgDB7UvajWG2b-s">Open contact form/, `${name}: approved hosted form has a named direct link`);
+  const formLink = html.match(/<a\b[^>]*class="button form-open-button"[^>]*>([\s\S]*?)<\/a>/);
+  assert.ok(formLink?.[0].includes('href="https://forms.zohopublic.com/helloitote1/form/ITOTExpressWebsiteInquiry/formperma/Ty7JGh3gF7uQJMt4jV_itqt_8XqnVgDB7UvajWG2b-s"'), `${name}: approved contact form destination`);
+  assert.match(formLink[1].replace(/<[^>]+>/g, ''), /contact form/i, `${name}: descriptive contact link`);
+  assert.doesNotMatch(html, /<link[^>]+href="https?:[^>]+rel="stylesheet"|<link[^>]+rel="stylesheet"[^>]+href="https?:/i, `${name}: styles are served locally`);
   assert.match(html, /href="mailto:hello@itotexpress.com"/, `${name}: email alternative remains available`);
   assert.doesNotMatch(html, /data-contact-mode="preview"|messages are not sent yet/, `${name}: no mock submission form`);
   assert.equal([...html.matchAll(/<h1\b/g)].length, 1, `${name}: exactly one main heading`);
@@ -26,6 +29,14 @@ for (const [name, html] of pages) {
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
   assert.equal(ids.length, new Set(ids).size, `${name}: unique IDs`);
   const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1] || 'null');
+  const siteNameMarkup = html.match(/<script type="application\/ld\+json" id="site-name-schema">([\s\S]*?)<\/script>/)?.[1];
+  if (name === 'index.html') {
+    const website = JSON.parse(siteNameMarkup || 'null');
+    assert.equal(website?.['@type'], 'WebSite', 'Homepage identifies the website for site-name eligibility');
+    assert.equal(website.name, 'IT/OT Express LLC');
+    assert.equal(website.url, 'https://itotexpress.com/');
+    assert.equal(schema.logo, 'https://itotexpress.com/assets/logo.png');
+  } else assert.equal(siteNameMarkup, undefined, `${name}: homepage site-name markup is not copied to service pages`);
   assert.ok(schema && ['Organization', 'Service', 'WebPage'].includes(schema['@type']), `${name}: structured data type`);
   assert.equal(schema['@context'], 'https://schema.org');
   assert.equal(schema['@type'] === 'Service' ? schema.provider.name : schema['@type'] === 'WebPage' ? schema.publisher.name : schema.name, 'IT/OT Express LLC');
@@ -46,4 +57,10 @@ for (const [name, html] of pages) {
 assert.equal(pages.size, 6, 'Homepage, four service pages and sample work');
 const homepage = pages.get('index.html');
 assert.ok(homepage.indexOf('id="services"') < homepage.indexOf('id="ai"'), 'Conventional services precede AI');
+const css = await readFile(new URL('site.css', root), 'utf8');
+for (const [, reference] of css.matchAll(/url\(['"]?([^)'"\s]+)['"]?\)/g)) {
+  if (reference.startsWith('#')) continue;
+  assert.doesNotMatch(reference, /^(?:https?:|\/\/)/, 'CSS assets stay local');
+  assert.ok((await stat(new URL(reference, root))).isFile(), `CSS asset exists: ${reference}`);
+}
 console.log(`PASS ${pages.size} pages, ${checkedLinks} local references; conventional services precede AI.`);
