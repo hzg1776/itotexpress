@@ -14,7 +14,7 @@ test('published host handling with a noindex test candidate: files, redirects, i
     });req.on('error',reject);req.end();
   });
   try {
-    for(const name of ['','network-audits.html','technical-documentation.html','ai-analysis.html','samples.html']) {
+    for(const name of ['','network-audits.html','technical-documentation.html','website-development.html','ai-analysis.html','samples.html']) {
       const response=await request('/'+name);assert.equal(response.status,200);assert.match(response.body,/<h1/);assert.doesNotMatch(response.body,/herman|goldstein|linkedin\.com|data-request=|REQUEST PREVIEW/i);
       assert.equal(response.headers['x-robots-tag'],undefined);
       assert.match(response.body,new RegExp('<link rel="canonical" href="https://itotexpress.com/'+name.replaceAll('.','\\.')+'">'));
@@ -23,6 +23,10 @@ test('published host handling with a noindex test candidate: files, redirects, i
     assert.match((await request('/robots.txt')).body,/Disallow: \//);
     assert.equal((await request('/styles.css')).headers['content-type'],'text/css; charset=utf-8');
     const head=await request('/','itotexpress.com','HEAD');assert.equal(head.status,200);assert.equal(head.body,'');
+    const policy=head.headers['content-security-policy'];
+    assert.match(policy,/connect-src 'none';/);
+    assert.match(policy,/form-action 'none';/);
+    assert.match(policy,/frame-ancestors 'none'/);
     assert.equal((await request('/','evil.example')).status,403);
     assert.equal((await request('/','itotexpress.com','POST')).status,405);
     for(const host of ['itotexpress.com','www.itotexpress.com']) {
