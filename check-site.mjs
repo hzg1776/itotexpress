@@ -10,6 +10,11 @@ const descriptions = new Set();
 let checkedLinks = 0;
 for (const [name, html] of pages) {
   assert.ok(!/herman|goldstein|linkedin\.com/i.test(html), `${name}: no personal identity or LinkedIn links`);
+  assert.doesNotMatch(html, /<iframe\b/, `${name}: contact must not reserve an empty embedded-form panel`);
+  assert.equal([...html.matchAll(/class="button form-open-button"/g)].length, 1, `${name}: one primary contact-form link`);
+  assert.match(html, /class="button form-open-button" href="https:\/\/forms\.zohopublic\.com\/helloitote1\/form\/ITOTExpressWebsiteInquiry\/formperma\/Ty7JGh3gF7uQJMt4jV_itqt_8XqnVgDB7UvajWG2b-s">Open contact form/, `${name}: approved hosted form has a named direct link`);
+  assert.match(html, /href="mailto:hello@itotexpress.com"/, `${name}: email alternative remains available`);
+  assert.doesNotMatch(html, /data-contact-mode="preview"|messages are not sent yet/, `${name}: no mock submission form`);
   assert.equal([...html.matchAll(/<h1\b/g)].length, 1, `${name}: exactly one main heading`);
   assert.match(html, /<html lang="en">/, `${name}: document language`);
   assert.match(html, /<meta name="robots" content="noindex, nofollow">/, `${name}: draft must stay noindex`);
@@ -38,7 +43,7 @@ for (const [name, html] of pages) {
   }
   console.log(`PASS ${name}: heading, draft directive, metadata, JSON-LD and links`);
 }
-assert.equal(pages.size, 5, 'Homepage, three service pages and sample work');
+assert.equal(pages.size, 6, 'Homepage, four service pages and sample work');
 const homepage = pages.get('index.html');
 assert.ok(homepage.indexOf('id="services"') < homepage.indexOf('id="ai"'), 'Conventional services precede AI');
 console.log(`PASS ${pages.size} pages, ${checkedLinks} local references; conventional services precede AI.`);

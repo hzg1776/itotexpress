@@ -4,7 +4,7 @@ const root = new URL('./dist/', import.meta.url);
 const home = await readFile(new URL('index.html', root), 'utf8');
 const get = pattern => {const match = home.match(pattern)?.[0]; if (!match) throw Error(`Missing shared section: ${pattern}`); return match;};
 const title = 'Sample Network Review & Document Lookup | IT/OT Express LLC';
-const description = 'Explore a fictional network review, documentation handover and interactive source-lookup prototype. Illustrative examples from IT/OT Express LLC.';
+const description = 'Fictional network review and documentation samples, with an interactive document-lookup prototype from IT/OT Express LLC.';
 const schema = {'@context':'https://schema.org','@type':'WebPage',name:title,description,publisher:{'@type':'Organization',name:'IT/OT Express LLC'}};
 const head = home.slice(0,home.indexOf('<body>'))
   .replace(/<title>.*?<\/title>/,`<title>${title.replaceAll('&','&amp;')}</title>`)
@@ -19,7 +19,6 @@ const header = get(/<header class="site-header">[\s\S]*?<\/header>/)
 const content = await readFile(new URL('./sample-content.html',import.meta.url),'utf8');
 const html = `${head}<body class="sample-page">
 <a class="skip-link" href="#main">Skip to content</a>
-<div class="draft-bar"><div class="wrap">Unpublished working draft <span>Preview for review before launch.</span></div></div>
 ${header}<main id="main" tabindex="-1">${content}
 ${get(/<section id="contact"[\s\S]*?<\/section>/)}</main>
 ${get(/<footer class="site-footer">[\s\S]*?<\/footer>/).replace('href="#main"','href="index.html"')}
