@@ -3,6 +3,35 @@ import assert from 'node:assert/strict';
 import http from 'node:http';
 import {readFile} from 'node:fs/promises';
 import {createSiteServer} from './server.mjs';
+import {gunzipSync} from 'node:zlib';
+
+test('text compression preserves content, HEAD length and explicit gzip opt-out', async () => {
+  const server = await createSiteServer({directory: new URL('./dist/', import.meta.url), port: 4180});
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  const request = (encoding, method = 'GET') => new Promise((resolve, reject) => {
+    const req = http.request({host: '127.0.0.1', port: server.address().port, path: '/site.css', method, headers: {Host: 'localhost:4180', 'Accept-Encoding': encoding}}, res => {
+      const chunks = [];
+      res.on('data', chunk => chunks.push(chunk));
+      res.on('end', () => resolve({headers: res.headers, body: Buffer.concat(chunks), status: res.statusCode}));
+    });
+    req.on('error', reject); req.end();
+  });
+  try {
+    const plain = await request('identity');
+    const compressed = await request('gzip');
+    assert.equal(compressed.status, 200);
+    assert.equal(compressed.headers['content-encoding'], 'gzip');
+    assert.equal(compressed.headers.vary, 'Accept-Encoding');
+    assert.deepEqual(gunzipSync(compressed.body), plain.body);
+    assert.ok(compressed.body.length < plain.body.length / 2);
+    const head = await request('gzip', 'HEAD');
+    assert.equal(head.body.length, 0);
+    assert.equal(head.headers['content-length'], compressed.headers['content-length']);
+    const declined = await request('gzip;q=0, identity');
+    assert.equal(declined.headers['content-encoding'], undefined);
+    assert.deepEqual(declined.body, plain.body);
+  } finally { await new Promise(resolve => server.close(resolve)); }
+});
 
 test('published host handling with a noindex test candidate: files, redirects, invalid requests',async()=>{
   const server=await createSiteServer({directory:new URL('./candidate/',import.meta.url),port:4180,published:true});
@@ -21,7 +50,7 @@ test('published host handling with a noindex test candidate: files, redirects, i
     }
     assert.match((await request('/sitemap.xml')).body,/<loc>https:\/\/itotexpress.com\/<\/loc>/);
     assert.match((await request('/robots.txt')).body,/Disallow: \//);
-    assert.equal((await request('/styles.css')).headers['content-type'],'text/css; charset=utf-8');
+    assert.equal((await request('/site.css')).headers['content-type'],'text/css; charset=utf-8');
     const head=await request('/','itotexpress.com','HEAD');assert.equal(head.status,200);assert.equal(head.body,'');
     const policy=head.headers['content-security-policy'];
     assert.match(policy,/connect-src 'none';/);

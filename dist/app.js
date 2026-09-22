@@ -19,3 +19,4 @@ if (menu && nav) {
   const current = document.body.classList.contains('service-page') ? 'services' : document.body.classList.contains('sample-page') ? 'examples' : 'home';
   nav.querySelector('[data-page="' + current + '"]')?.setAttribute('aria-current', 'page');
 }
+

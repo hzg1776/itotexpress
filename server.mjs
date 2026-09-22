@@ -1,10 +1,19 @@
 import http from 'node:http';
 import {createReadStream} from 'node:fs';
-import {realpath, stat} from 'node:fs/promises';
+import {realpath, stat, readFile} from 'node:fs/promises';
+import {gzip} from 'node:zlib';
+import {promisify} from 'node:util';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
-const types = {'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.xml':'application/xml; charset=utf-8','.txt':'text/plain; charset=utf-8','.webp':'image/webp','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml','.ico':'image/x-icon'};
+const types = {'.woff2':'font/woff2','.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.xml':'application/xml; charset=utf-8','.txt':'text/plain; charset=utf-8','.webp':'image/webp','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml','.ico':'image/x-icon'};
+const compress = promisify(gzip);
+const textTypes = new Set(['.html','.css','.js','.json','.xml','.txt','.svg']);
+const acceptsGzip = value => (value || '').split(',').some(part => {
+  const [coding, ...parameters] = part.trim().toLowerCase().split(';');
+  const quality = parameters.map(value => value.trim()).find(value => value.startsWith('q='));
+  return coding.trim() === 'gzip' && (!quality || Number(quality.slice(2)) > 0);
+});
 
 // This server serves one public artifact directory; it never serves the business workspace.
 export async function createSiteServer({directory, port=4180, published=false}={}) {
@@ -37,6 +46,14 @@ export async function createSiteServer({directory, port=4180, published=false}={
       if (!inside(file)) return finish(404,'Not found');
       const info = await stat(file);
       if (!info.isFile()) return finish(404,'Not found');
+      if (textTypes.has(path.extname(file)) && info.size >= 1024) {
+        res.setHeader('Vary', 'Accept-Encoding');
+        if (acceptsGzip(req.headers['accept-encoding'])) {
+          const body = await compress(await readFile(file));
+          res.writeHead(200, {'Content-Type': types[path.extname(file)], 'Content-Encoding': 'gzip', 'Content-Length': body.length});
+          return res.end(req.method === 'HEAD' ? undefined : body);
+        }
+      }
       res.writeHead(200,{'Content-Type':types[path.extname(file)],'Content-Length':info.size});
       if(req.method==='HEAD') return res.end();
       const stream=createReadStream(file);
