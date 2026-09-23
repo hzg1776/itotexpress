@@ -17,3 +17,10 @@ The previously verified hosting location is C:/ITOTExpress/site with local healt
 The owner requested publication of the reviewed spacing corrections. This static-only update adds breathing room around section focus outlines, aligns card text across desktop/tablet rows, extends the experience divider to its container width, uses shared 32px gaps for comparable two-column sections, and standardizes panel padding to 24px desktop/tablet and 20px mobile. Keyboard focus cues are retained. No server or hosting configuration changes are required.
 
 Local browser QA covered all six pages at 1440px, 768px and 390px, plus the homepage at 320px, with no page-wide overflow or captured warnings/errors. Reporting jump navigation and subsequent keyboard focus passed. Current release hashes are recorded in RELEASE_CHECKS.json. The existing approved static-release process preserves a rollback copy and verifies public content and assets before recording success.
+
+
+## Real Experience and Direct Copy - September 22, 2026
+
+The owner approved replacing fictional examples with resume-based professional experience and requested publication. The Experience page covers industrial networks, controls connectivity, Power BI reporting, business systems and documentation, with one brief explanation of prior-role context. Homepage/service wording is more direct. The invented network case, handover example and lookup demo have been removed, including their three browser modules. The existing samples.html route is retained; internal links now point to the real experience sections.
+
+All six pages were checked at 1440, 768 and 390px with no page-wide overflow or captured errors. Reporting navigation and the contact link passed. The release is static-only, preserves the spacing corrections and existing contact destinations, and requires no server changes. The release manifest records the exact normalized artifact hashes.

@@ -10,7 +10,7 @@ const pages = [
     description: 'Business website development, redesigns, contact forms and mobile layouts. Based in Holly Springs, serving North Carolina.',
     heading: 'Business Website Development',
     introduction: 'Your website should help customers understand your business and get in touch. We create new sites and improve existing ones, from the wording and layout to navigation and contact forms.',
-    takeaway: 'A new or redesigned website with the agreed pages, features and instructions for keeping it up to date.',
+    takeaway: 'A new or redesigned website with the pages, features and instructions for keeping it up to date.',
     start: ['A Website That Fits Your Business', 'We start with your customers and what they need to find. Together, we choose the pages and features that belong on your site and plan how you will keep it current.'],
     interest: 'website',
     cta: 'Discuss your website',
@@ -30,11 +30,11 @@ const pages = [
     ],
     preparationNote: 'Content preparation and tool selection can be included in the project scope.',
     outputHeading: 'Review and Handover',
-    output: 'You review the pages and wording before launch. We check the agreed links, forms and layouts on different screen sizes. The project also defines who owns and manages the website, where it will be hosted, and how future updates will be handled.',
+    output: 'You review the pages and wording before launch. We check the links, forms and layouts on different screen sizes. The project also defines who owns and manages the website, where it will be hosted, and how future updates will be handled.',
     faqs: [
       ['Can You Improve a Website We Already Have?', 'Yes. We can discuss changes to its appearance, wording, navigation or features. We first check how the site was built and what can be changed.'],
-      ['Will the Website Work on Phones?', 'We design pages to adjust to smaller screens and check the agreed layouts and controls at phone, tablet and desktop sizes.'],
-      ['Can Visitors Contact Us Through the Website?', 'Yes. A contact form can collect the information you need and send inquiries to an agreed inbox or submission list. We check the complete message route before launch.'],
+      ['Will the Website Work on Phones?', 'We design pages to adjust to smaller screens and check the layouts and controls at phone, tablet and desktop sizes.'],
+      ['Can Visitors Contact Us Through the Website?', 'Yes. A contact form can collect the information you need and send inquiries to your inbox or submission list. We check the complete message route before launch.'],
       ['What Are a Domain Name and Hosting?', 'A domain name is your website address. Hosting is the service that keeps the website available online. We discuss who will manage these and any ongoing costs before choosing them.'],
       ['Are Future Changes Included?', 'We agree on any updates, maintenance or training separately so you know who will look after the site after launch.']
     ],
@@ -47,7 +47,7 @@ const pages = [
     description: 'Network audits, Wi-Fi troubleshooting, and network, rack and cabling drawings for North Carolina businesses. Based in Holly Springs, serving Wake County and the Triangle.',
     heading: 'Network Audits and Wi-Fi Reviews',
     introduction: 'Slow connections and unreliable Wi-Fi interrupt everyday work. We investigate your network setup and reported problems, then explain the findings and possible next steps.',
-    takeaway: 'A findings report, network or equipment drawings, and recommended actions, as specified in the project scope.',
+    takeaway: 'A clear findings report, network or equipment drawings, and recommended next steps.',
     start: ['Understanding the Problem', 'We begin with what your team is experiencing, where it happens and what has changed. That helps us focus the review on the equipment and connections involved.'],
     interest: 'network',
     cta: 'Discuss a network audit',
@@ -67,8 +67,8 @@ const pages = [
     ],
     preparationNote: 'You do not need complete records to discuss the work. Missing documentation can be part of the scope.',
     outputHeading: 'Findings and Recommendations',
-    output: 'The agreed report and drawings record findings, unresolved questions and recommended actions. Repairs, equipment replacement and configuration changes are scoped separately.',
-    extra: '<section id="industrial-scope" class="service-block" aria-labelledby="industrial-heading" tabindex="-1"><p class="eyebrow">OFFICE + INDUSTRIAL NETWORKS</p><h2 id="industrial-heading">Understand Your IT and OT Connections</h2><p>For shops, plants and warehouses, the review can include agreed PLCs, HMIs, cameras and other networked equipment, alongside the office network.</p><div class="scope-grid"><article><h3>Agree on the Equipment</h3><p>Define which devices, areas and records are in scope. Record access limits and anything that cannot be verified.</p></article><article><h3>Review the Connections</h3><p>Document how office and machine networks connect and identify separation questions for your team and vendors.</p></article><article><h3>Hand Over the Findings</h3><p>Receive drawings, evidence and open questions. Scanning, configuration changes and work that could affect production require separate planning and authorization.</p></article></div></section>',
+    output: 'Receive a report and drawings that explain the findings and recommended actions. We can then discuss repairs, equipment replacement, or configuration changes.',
+    extra: '<section id="industrial-scope" class="service-block" aria-labelledby="industrial-heading" tabindex="-1"><p class="eyebrow">OFFICE + INDUSTRIAL NETWORKS</p><h2 id="industrial-heading">Understand Your IT and OT Connections</h2><p>For shops, plants and warehouses, the review can include PLCs, HMIs, cameras and other networked equipment, alongside the office network.</p><div class="scope-grid"><article><h3>Identify the Equipment</h3><p>Identify the devices, production areas, and existing records to include in the review.</p></article><article><h3>Review the Connections</h3><p>Document how office and machine networks connect and identify separation questions for your team and vendors.</p></article><article><h3>Hand Over the Findings</h3><p>Get network drawings, findings, and recommendations your team can use. Plan any changes around production requirements.</p></article></div></section>',
 
     faqs: [
       ['What Is the Difference Between a Network Audit and Troubleshooting?', 'A network audit is a review of your setup and records. Troubleshooting looks for the cause of a specific problem, such as dropped connections. A project can include both if we agree on that before starting.'],
@@ -85,7 +85,7 @@ const pages = [
     description: 'Network and rack drawings, equipment lists, operating procedures and handover documents. Based in Holly Springs, serving North Carolina businesses.',
     heading: 'Technical Documentation',
     introduction: 'When system knowledge is scattered across old files and conversations, routine work takes longer. We turn those records into organized diagrams, equipment lists and instructions your team can use.',
-    takeaway: 'Drawings, equipment lists, procedures and handover notes in the agreed file formats.',
+    takeaway: 'Drawings, equipment lists, procedures and handover notes in formats your team can use.',
     start: ['Documents Your Team Can Use', 'We organize the information around the people who need it, whether they are troubleshooting a connection, maintaining equipment or learning a routine task.'],
     interest: 'documentation',
     cta: 'Discuss a documentation project',
@@ -120,9 +120,9 @@ const pages = [
     label: 'AI & Automation',
     title: 'AI Analysis & Consulting in NC | IT/OT Express LLC',
     description: 'AI assessments covering workflows, model and software options, hardware requirements, costs, privacy and evaluation criteria. Serving North Carolina.',
-    heading: 'Practical AI, from Assessment to a Scoped Prototype',
+    heading: 'Practical AI for Everyday Work',
     introduction: 'Find a useful starting point for a document assistant, custom agent or routine workflow. We compare approaches and define how to test the results before you commit to a larger system.',
-    takeaway: 'A written assessment of requirements and options, with recommendations and a trial scope where appropriate.',
+    takeaway: 'A clear comparison of your options, practical recommendations, and a plan for testing your workflow.',
     start: ['Start with the Work You Want to Improve', 'We look at how the task is handled today and what a useful improvement would mean for your team. That gives us a basis for comparing options and checking whether the results are good enough.'],
     interest: 'ai',
     cta: 'Discuss an AI project',
@@ -142,13 +142,13 @@ const pages = [
     ],
     preparationNote: 'Product selection and hardware requirements are part of the assessment; purchases are not required to discuss the project.',
     outputHeading: 'Assessment Report and Trial Scope',
-    output: 'Depending on the agreed scope, the report documents requirements, data gaps, software and hardware options, estimated costs and recommendations. A proposed trial specifies test cases, evaluation criteria and approval points. Building or deploying a system is separate work.',
-    extra: '<section class="service-block" aria-labelledby="use-cases-heading"><h2 id="use-cases-heading">Start with One Useful Workflow</h2><div class="scope-grid"><article><h3>Document Assistants</h3><p>Find information in approved manuals and procedures, show the source and flag missing answers.</p></article><article><h3>Staff Guidance and Reporting</h3><p>Help teams find procedures, prepare routine reports or turn existing knowledge into training material.</p></article><article><h3>Custom Agents and Automation</h3><p>Scope repetitive order or shipping-document tasks, with clear permissions, exception handling and human approval.</p></article></div><h3 class="prototype-heading">Then Test a Small Prototype</h3><p>A separately scoped build can test the chosen workflow against agreed examples and difficult cases. The handover records results, limitations, running costs and the requirements for any wider rollout.</p><a class="arrow-link" href="samples.html#lookup-example">Try the fictional document lookup example &rarr;</a></section>',
+    output: 'Receive recommendations covering your workflow, software, hardware, and running costs, plus a plan for testing a small pilot. We discuss implementation as the next step.',
+    extra: '<section class="service-block" aria-labelledby="use-cases-heading"><h2 id="use-cases-heading">Start with One Useful Workflow</h2><div class="scope-grid"><article><h3>Document Assistants</h3><p>Find information in approved manuals and procedures, show the source and flag missing answers.</p></article><article><h3>Staff Guidance and Reporting</h3><p>Help teams find procedures, prepare routine reports or turn existing knowledge into training material.</p></article><article><h3>Custom Agents and Automation</h3><p>Reduce repetitive order or shipping-document tasks, with clear permissions and people involved in important decisions.</p></article></div><h3 class="prototype-heading">Then Test a Small Prototype</h3><p>Test the workflow on everyday tasks and difficult cases before expanding. Review the results, limitations, running costs, and what your team needs to use it.</p><a class="arrow-link" href="#contact">Discuss Your AI Project &rarr;</a></section>',
     faqs: [
       ['Do We Need to Choose an AI Tool First?', 'No. We can compare the tools and equipment for you. Start with the task, the information it uses and any limits on budget or privacy.'],
       ['Can We Compare AI on Our Computers with Online Services?', 'Yes. We can compare tools that run on your equipment with services accessed online. The review considers the task, privacy, equipment and ongoing costs.'],
       ['How Do We Decide Whether AI Is a Good Fit?', 'Look at the task, the information available and how someone would check the results. We consider mistakes, cost and how the tool fits into your work. A simpler software change may be a better choice.'],
-      ['Does an AI Assessment Include Building the System?', 'No. The review helps you decide what to do. Building and testing a system is separate work with its own agreed price, schedule and responsibilities.']
+      ['Does an AI Assessment Include Building the System?', 'The assessment covers recommendations and a testing plan. If you want to proceed, we define the build, schedule, and cost with you.']
     ],
     related: ['network-audits.html', 'technical-documentation.html']
   }
@@ -196,7 +196,7 @@ for (const page of pages) {
       <div class="wrap">
         <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">${escape(page.label)}</span></nav>
         <div class="service-hero-layout">
-          <div><p class="eyebrow">HOLLY SPRINGS · SERVING NORTH CAROLINA</p>
+          <div><p class="eyebrow">HOLLY SPRINGS Ã‚Â· SERVING NORTH CAROLINA</p>
           <h1 id="service-heading">${escape(page.heading)}</h1>
           <p class="service-introduction">${escape(page.introduction)}</p>
           <div class="service-takeaway"><h2>What You Receive</h2><p>${escape(page.takeaway)}</p></div>
@@ -206,7 +206,7 @@ for (const page of pages) {
       </div>
     </section>
     <div class="wrap service-body">
-      <section class="starting-project" aria-labelledby="starting-heading"><div><h2 id="starting-heading">${escape(page.start[0])}</h2></div><div><p>${escape(page.start[1])}</p>${page.interest==='website'?'':`<a href="samples.html${page.interest==='ai'?'#lookup-example':page.interest==='documentation'?'#handover-example':'#network-example'}">See a sample</a>`}</div></section>
+      <section class="starting-project" aria-labelledby="starting-heading"><div><h2 id="starting-heading">${escape(page.start[0])}</h2></div><div><p>${escape(page.start[1])}</p>${page.interest==='website'?'':`<a href="samples.html${page.interest==='network'?'#industrial-experience':'#documentation-experience'}">Explore Our Experience</a>`}</div></section>
       <section id="scope" class="service-block" aria-labelledby="scope-heading" tabindex="-1">
         <h2 id="scope-heading">${escape(page.sectionHeading)}</h2>
         <p class="section-intro">${escape(page.sectionIntro)}</p>

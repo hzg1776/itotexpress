@@ -3,8 +3,8 @@ import {readFile, writeFile} from 'node:fs/promises';
 const root = new URL('./dist/', import.meta.url);
 const home = await readFile(new URL('index.html', root), 'utf8');
 const get = pattern => {const match = home.match(pattern)?.[0]; if (!match) throw Error(`Missing shared section: ${pattern}`); return match;};
-const title = 'Professional Experience & Sample Deliverables | IT/OT Express LLC';
-const description = 'Prior manufacturing reporting experience, fictional network and documentation samples, and a document-lookup prototype from IT/OT Express LLC.';
+const title = 'IT & OT Experience | IT/OT Express LLC';
+const description = 'Professional experience in industrial networks, HMI/SCADA systems, manufacturing reporting, ERP workflows, and technical documentation.';
 const schema = {'@context':'https://schema.org','@type':'WebPage',name:title,description,publisher:{'@type':'Organization',name:'IT/OT Express LLC'}};
 const head = home.slice(0,home.indexOf('<body>'))
   .replace(/\s*<script type="application\/ld\+json" id="site-name-schema">[\s\S]*?<\/script>/, '')
@@ -14,8 +14,7 @@ const head = home.slice(0,home.indexOf('<body>'))
   .replace(/<meta name="description" content="[^"]*">/,`<meta name="description" content="${description}">`)
   .replace(/<meta property="og:title" content="[^"]*">/,`<meta property="og:title" content="${title.replaceAll('&','&amp;')}">`)
   .replace(/<meta property="og:description" content="[^"]*">/,`<meta property="og:description" content="${description}">`)
-  .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/,`<script type="application/ld+json">${JSON.stringify(schema)}</script>`)
-  .replace('</head>','  <script type="module" src="sample-demo.js"></script>\n</head>');
+  .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/,`<script type="application/ld+json">${JSON.stringify(schema)}</script>`);
 const header = get(/<header class="site-header">[\s\S]*?<\/header>/)
   .replace('href="#main"','href="index.html"').replace('href="#services"','href="index.html#services"')
   .replace('href="#ai"','href="index.html#ai"').replace('href="#approach"','href="index.html#approach"').replace('href="#about"','href="index.html#about"');
@@ -27,6 +26,4 @@ ${get(/<section id="contact"[\s\S]*?<\/section>/)}</main>
 ${get(/<footer class="site-footer">[\s\S]*?<\/footer>/).replace('href="#main"','href="index.html"')}
 </body></html>`;
 await writeFile(new URL('samples.html',root),html);
-// The browser-only fictional demo modules are included in dist/ so this package
-// can be checked out independently of the private business-planning workspace.
-console.log('Updated samples.html; existing browser-only demo modules preserved');
+console.log('Updated professional experience page');
