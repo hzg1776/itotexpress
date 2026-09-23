@@ -19,11 +19,15 @@ const acceptsGzip = value => (value || '').split(',').some(part => {
 export async function createSiteServer({directory, port=4180, published=false}={}) {
   const root = await realpath(directory || fileURLToPath(new URL('./candidate', import.meta.url)));
   const inside = file => file.startsWith(root + path.sep);
+  // Cloudflare injects its analytics script and receives reports at /cdn-cgi/rum.
+  // Local previews remain isolated from analytics.
+  const scriptSources = published ? "'self' https://static.cloudflareinsights.com" : "'self'";
+  const connectionSources = published ? "'self'" : "'none'";
   return http.createServer(async (req,res) => {
     res.setHeader('X-Content-Type-Options','nosniff');
     res.setHeader('Referrer-Policy','strict-origin-when-cross-origin');
     res.setHeader('Permissions-Policy','camera=(), microphone=(), geolocation=()');
-    res.setHeader('Content-Security-Policy',"default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'");
+    res.setHeader('Content-Security-Policy',`default-src 'self'; img-src 'self' data:; style-src 'self'; script-src ${scriptSources}; connect-src ${connectionSources}; form-action 'none'; base-uri 'none'; frame-ancestors 'none'`);
     res.setHeader('Cache-Control','no-cache');
     if (!published) res.setHeader('X-Robots-Tag','noindex, nofollow');
     const finish = (status, text) => {res.writeHead(status,{'Content-Type':'text/plain; charset=utf-8'});res.end(req.method==='HEAD' ? undefined : text);};
