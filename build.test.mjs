@@ -35,7 +35,8 @@ test('candidate and release keep distinct indexing rules and correct page URLs',
       execFileSync(process.execPath, args, {cwd: fixture});
       const output = path.join(fixture, mode);
       const files = (await readdir(output)).filter(name => name.endsWith('.html'));
-      assert.equal(files.length, 6);
+      assert.equal(files.length, 7);
+      assert.ok(files.includes('industrial-networks.html'), 'Industrial work has a standalone service route');
       for (const name of files) {
         const html = await readFile(path.join(output, name), 'utf8');
         const url = 'https://itotexpress.com/' + (name === 'index.html' ? '' : name);
@@ -47,6 +48,8 @@ test('candidate and release keep distinct indexing rules and correct page URLs',
       }
       const robots = await readFile(path.join(output, 'robots.txt'), 'utf8');
       assert.match(robots, mode === 'release' ? /Allow: \/\nSitemap:/ : /Disallow: \//);
+      const sitemap = await readFile(path.join(output, 'sitemap.xml'), 'utf8');
+      assert.ok(sitemap.includes('https://itotexpress.com/industrial-networks.html'), 'New service route appears in generated sitemap');
       assert.throws(() => execFileSync(process.execPath, args, {cwd: fixture, stdio: 'pipe'}), 'existing output must not be overwritten');
     }
   } finally {

@@ -1,6 +1,6 @@
 const menu = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#site-nav');
-const mobile = window.matchMedia('(max-width: 760px)');
+const mobile = window.matchMedia('(max-width: 960px)');
 document.documentElement.classList.add('js');
 if (menu && nav) {
   menu.hidden = false;
@@ -16,7 +16,10 @@ if (menu && nav) {
     if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') { setMenu(false); menu.focus(); }
   });
   mobile.addEventListener('change', () => setMenu(false));
-  const current = document.body.classList.contains('service-page') ? 'services' : document.body.classList.contains('sample-page') ? 'examples' : 'home';
-  nav.querySelector('[data-page="' + current + '"]')?.setAttribute('aria-current', 'page');
+  if (document.body.classList.contains('sample-page')) {
+    nav.querySelector('[data-page="examples"]')?.setAttribute('aria-current', 'page');
+  } else if (document.body.dataset.serviceInterest === 'ai') {
+    nav.querySelector('[data-page="ai"]')?.setAttribute('aria-current', 'page');
+  }
 }
 

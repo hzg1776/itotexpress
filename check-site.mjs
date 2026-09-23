@@ -54,7 +54,7 @@ for (const [name, html] of pages) {
   }
   console.log(`PASS ${name}: heading, draft directive, metadata, JSON-LD and links`);
 }
-assert.equal(pages.size, 6, 'Homepage, four service pages and sample work');
+assert.equal(pages.size, 7, 'Homepage, five service pages and professional experience');
 const homepage = pages.get('index.html');
 assert.ok(homepage.indexOf('id="services"') < homepage.indexOf('id="ai"'), 'Conventional services precede AI');
 const css = await readFile(new URL('site.css', root), 'utf8');

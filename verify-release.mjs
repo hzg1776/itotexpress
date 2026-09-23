@@ -16,7 +16,7 @@ const request = (path, host='itotexpress.com') => new Promise((resolve,reject) =
 });
 try {
   const pages=(await readdir(root)).filter(name=>name.endsWith('.html'));
-  assert.equal(pages.length,6);
+  assert.deepEqual(pages.sort(), ['ai-analysis.html', 'index.html', 'industrial-networks.html', 'network-audits.html', 'samples.html', 'technical-documentation.html', 'website-development.html']);
   const assets=new Set();
   for(const name of pages) {
     const path=name==='index.html'?'/':'/'+name;
@@ -36,7 +36,7 @@ try {
   for (const match of css.matchAll(/url\(['"]?([^)'"]+)['"]?\)/g)) assets.add(match[1]);
   for(const path of assets) assert.equal((await request('/'+path)).status,path==='index.html'?308:200,path);
   assert.match((await request('/robots.txt')).body,/Allow: \//);
-  assert.equal([...((await request('/sitemap.xml')).body.matchAll(/<loc>/g))].length,6);
+  assert.equal([...((await request('/sitemap.xml')).body.matchAll(/<loc>/g))].length,pages.length);
   assert.equal((await request('/missing.html')).status,404);
   assert.equal((await request('/palzivalerts/hr')).status,410);
   assert.equal((await request('/','www.itotexpress.com')).status,308);

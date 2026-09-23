@@ -34,7 +34,7 @@ test('text compression preserves content, HEAD length and explicit gzip opt-out'
 });
 
 test('published host handling with a noindex test candidate: files, redirects, invalid requests',async()=>{
-  const server=await createSiteServer({directory:new URL('./candidate/',import.meta.url),port:4180,published:true});
+  const server=await createSiteServer({directory:new URL('./dist/',import.meta.url),port:4180,published:true});
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
   const port=server.address().port;
   const request=(pathname,host='itotexpress.com',method='GET')=>new Promise((resolve,reject)=>{
@@ -43,7 +43,7 @@ test('published host handling with a noindex test candidate: files, redirects, i
     });req.on('error',reject);req.end();
   });
   try {
-    for(const name of ['','network-audits.html','technical-documentation.html','website-development.html','ai-analysis.html','samples.html']) {
+    for(const name of ['','network-audits.html','industrial-networks.html','technical-documentation.html','website-development.html','ai-analysis.html','samples.html']) {
       const response=await request('/'+name);assert.equal(response.status,200);assert.match(response.body,/<h1/);assert.doesNotMatch(response.body,/herman|goldstein|linkedin\.com|data-request=|REQUEST PREVIEW/i);
       assert.equal(response.headers['x-robots-tag'],undefined);
       assert.match(response.body,new RegExp('<link rel="canonical" href="https://itotexpress.com/'+name.replaceAll('.','\\.')+'">'));
@@ -73,7 +73,7 @@ test('published host handling with a noindex test candidate: files, redirects, i
 });
 
 test('candidate stays noindex and does not accept public hostnames',async()=>{
-  const server=await createSiteServer({directory:new URL('./candidate/',import.meta.url),port:4180});
+  const server=await createSiteServer({directory:new URL('./dist/',import.meta.url),port:4180});
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
   try {
     const request=host=>new Promise((resolve,reject)=>{
@@ -85,6 +85,6 @@ test('candidate stays noindex and does not accept public hostnames',async()=>{
     assert.equal(response.status,200);assert.equal(response.headers['x-robots-tag'],'noindex, nofollow');
     assert.match(response.body,/noindex, nofollow/);
     assert.equal((await request('itotexpress.com')).status,403);
-    const robots=await readFile(new URL('./candidate/robots.txt',import.meta.url),'utf8');assert.match(robots,/Disallow: \//);
+    const robots=await readFile(new URL('./dist/robots.txt',import.meta.url),'utf8');assert.match(robots,/Disallow: \//);
   } finally {await new Promise(resolve=>server.close(resolve));}
 });
