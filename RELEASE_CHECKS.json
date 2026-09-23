@@ -1,11 +1,11 @@
 {
-  "checkedAt": "2026-09-23T00:59:56.837Z",
+  "checkedAt": "2026-09-23T01:22:20.665Z",
   "target": "ephemeral loopback release only",
   "pages": 6,
   "linkedResources": 25,
   "checks": "passed",
   "sha256": {
-    "ai-analysis.html": "cdeef4d5056e36d2605a37a023859ac47f26a9f87d9c8d3fc47a618c27f1b443",
+    "ai-analysis.html": "1836a7f29e3fa5e969ca2a585a4f70d341a943b464f04947eb88871b3a27c8a0",
     "app.js": "6759addc77acc68aeccb9562a608b9d892c86aab3383f8fa7f9c00faba6685c1",
     "assets/fonts/bricolage-grotesque-700.woff2": "5dfb9136406d20807ba9cf62566dfdc5c8ec4eeef16571bb03c68ee7fe59a1b1",
     "assets/fonts/bricolagegrotesque-OFL.txt": "9e75de0268df02ccd432ce3e438b0a316c48a8170fd447aeadf0142541b667a6",
@@ -30,15 +30,15 @@
     "demo-retrieval.js": "8987122f0a6089adb3102d062cf8ad050b184064bfcdc4d79951907baf59bdea",
     "favicon-20260922.png": "5a87f0f712050b771059cd727091c4e447f3200ef3c358af3510ecfe736e1afc",
     "favicon.ico": "ef2eadb89e070578f87d92e337835351feac2adbdd84e5a343ddcee671a7f9f6",
-    "index.html": "e6fe96338d9262cfc88a3b4f08deddfe53dc2eaa81523b086ab629004800ec14",
-    "network-audits.html": "d9c38dfac615b7ad693d9b23995b55c5e612f72604c7dc1fe368b6b051b46c4d",
+    "index.html": "bb634baa6f3adf4830230a21eedf08e98f2d31b880b37c7743fd7b62ca2c945e",
+    "network-audits.html": "b0b710516619203693a2a8b992cd37dd7eb029606f8121c0c4e7eaa8dc5122ea",
     "no-script.css": "0daa6a862901072d0e87e6752891e752119dfbc2f9ff0b81f4b024a59e80d87c",
     "robots.txt": "a532fc0f048c50f5d30d4501907da0edc89972e44b0ff6a19a3fdf06772f3ae5",
     "sample-demo.js": "ff2705cc28171ee258d326b3834072ba7f964282d2fb0ca22754c091744a249b",
-    "samples.html": "91f6a81bbdb1b9c986dcffa91b8c86275d91413d6d053ae93ea64607977e5e3a",
-    "site.css": "d988991c6710c273b5c6fa96dc92ab5f5599e998f0a687b43a30f6bf073b242e",
+    "samples.html": "50bef61d89aec60c2bf5510cee58d800f58f08d53f12db3207b53c41de9a766c",
+    "site.css": "9975792544617052274f9e4ec7f74f39ffacd730668d4eb3841f53f9f4294a2b",
     "sitemap.xml": "2ab183629d844afbf1c2b40e0ccfbdbfb37faa82254f65b2b2b917427fda47bf",
-    "technical-documentation.html": "27a385362b7b28ad7c122f9300b532f8abd3082c4048a78011bbdecee0a10c9f",
-    "website-development.html": "44cc9057287a786e6b2b5a57fcb0e35be2fff8cf3d4bb0ea14fe22d61323190f"
+    "technical-documentation.html": "d9453bd10c575ada3d6be8c432360571a6251aaa86f504a482eeb5f8f4e32077",
+    "website-development.html": "5cc13f8fc501653a4bc58e820ed1d20a7eaee36f6745530a22779739ccba292b"
   }
 }

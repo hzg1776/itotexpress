@@ -11,3 +11,9 @@ Six pages and 234 local references pass. Five Node tests and fresh candidate/rel
 After merge, rebuild the exact merged revision and compare all release hashes to RELEASE_CHECKS.json. Verify the unchanged server before staging. Back up the current release and deployment metadata outside the public web root, then hash-check the staged release. Replace only static release files using the existing hosting arrangement; no restart, DNS, tunnel or credential changes are needed. Check all public pages and assets, the new content and disclosure, indexability, redirects and expected errors. Restore the preserved release if checks fail.
 
 The previously verified hosting location is C:/ITOTExpress/site with local health on port 4181. Recheck before execution. Fresh contact-form delivery was verified earlier in this task; Google crawl requests were accepted but do not establish completed processing.
+
+## Approved Spacing Update - September 22, 2026
+
+The owner requested publication of the reviewed spacing corrections. This static-only update adds breathing room around section focus outlines, aligns card text across desktop/tablet rows, extends the experience divider to its container width, uses shared 32px gaps for comparable two-column sections, and standardizes panel padding to 24px desktop/tablet and 20px mobile. Keyboard focus cues are retained. No server or hosting configuration changes are required.
+
+Local browser QA covered all six pages at 1440px, 768px and 390px, plus the homepage at 320px, with no page-wide overflow or captured warnings/errors. Reporting jump navigation and subsequent keyboard focus passed. Current release hashes are recorded in RELEASE_CHECKS.json. The existing approved static-release process preserves a rollback copy and verifies public content and assets before recording success.
