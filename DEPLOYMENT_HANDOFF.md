@@ -1,21 +1,13 @@
-# Plant-Network Section Deployment
+# Professional Experience Release
 
-This update adds the owner-approved Industrial Networks & Plant Connectivity section before AI on the homepage. It includes four service areas, a contact button and a shared footer link. Headings and service labels use Title Case throughout the six pages. No server code, assets, accounts or dependencies are changed.
+Adds the approved industrial-systems background and a Power BI reporting example from the owner's prior employment. Clearly distinguishes that experience from fictional demos and from IT/OT Express LLC client work. No personal contact information, employer/client names, resume file or quantified savings claim is included.
 
 ## Validation
 
-- Six source pages and 231 local references pass the static checker.
-- All five Node tests pass.
-- Release verification passes six pages and 25 linked resources; RELEASE_CHECKS.json records 35 artifact hashes.
-- Recent Lighthouse audit of this content: five mobile pages 99 performance, AI 100; desktop homepage 100. Accessibility and best practices 100 throughout. SEO remains 92 because Lighthouse's robots fetch is blocked by CSP; direct retrieval and the unmodified validator pass.
-- Browser review at 320, 390, 768 and 1440 pixels showed no horizontal overflow. The section uses two desktop columns and one mobile column. Contact and footer links were checked.
+Six pages and 234 local references pass. Five Node tests and fresh candidate/release builds pass. Release verification covers six pages, 25 linked resources, indexability, contact links, redirects, 404/410 responses and 35 file hashes. Desktop (1440px) and mobile (390px) preview checks passed, including homepage-to-project and project-to-contact navigation, with no captured browser errors. Lighthouse was not rerun for this content update.
 
-## Release and Rollback
+## Publication and Rollback
 
-1. Merge only the reviewed revision. Fetch and check out the resulting immutable merge SHA in a separate non-production checkout.
-2. Build a fresh indexable release and run verify-release.mjs. Verify its artifact hashes against the reviewed manifest. Check that deployed server.mjs exactly matches the unchanged approved server.
-3. Preserve the prior release, server and deployment metadata outside the public web root. Stage and hash-verify all 35 replacement files before touching the live release.
-4. Using the existing approved hosting location, move the current release into the rollback directory and rename the staged directory to release. No server replacement, service restart, tunnel change or DNS change is needed for this static-only update. The existing Node server reads the release path on each request.
-5. Verify all six public pages, the new section, Title Case headings, contact destination, assets/fonts, robots/sitemap and HTTP/www redirects. Check expected 404 and 410 responses. If validation fails, move the unsuccessful release aside and restore the preserved release directory.
+After merge, rebuild the exact merged revision and compare all release hashes to RELEASE_CHECKS.json. Verify the unchanged server before staging. Back up the current release and deployment metadata outside the public web root, then hash-check the staged release. Replace only static release files using the existing hosting arrangement; no restart, DNS, tunnel or credential changes are needed. Check all public pages and assets, the new content and disclosure, indexability, redirects and expected errors. Restore the preserved release if checks fail.
 
-Previous hosting records identify C:/ITOTExpress/site on loopback port 4181; verify the actual target before a deployment. Do not expose the repository itself as the web root. Inbox delivery and Google recrawl are separate checks and were not repeated for this content update.
+The previously verified hosting location is C:/ITOTExpress/site with local health on port 4181. Recheck before execution. Fresh contact-form delivery was verified earlier in this task; Google crawl requests were accepted but do not establish completed processing.
