@@ -3,8 +3,8 @@ import {readFile, writeFile} from 'node:fs/promises';
 const root = new URL('./dist/', import.meta.url);
 const home = await readFile(new URL('index.html', root), 'utf8');
 const get = pattern => {const match = home.match(pattern)?.[0]; if (!match) throw Error(`Missing shared section: ${pattern}`); return match;};
-const title = 'Sample Network Review & Document Lookup | IT/OT Express LLC';
-const description = 'Fictional network review and documentation samples, with an interactive document-lookup prototype from IT/OT Express LLC.';
+const title = 'Professional Experience & Sample Deliverables | IT/OT Express LLC';
+const description = 'Prior manufacturing reporting experience, fictional network and documentation samples, and a document-lookup prototype from IT/OT Express LLC.';
 const schema = {'@context':'https://schema.org','@type':'WebPage',name:title,description,publisher:{'@type':'Organization',name:'IT/OT Express LLC'}};
 const head = home.slice(0,home.indexOf('<body>'))
   .replace(/\s*<script type="application\/ld\+json" id="site-name-schema">[\s\S]*?<\/script>/, '')

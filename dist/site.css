@@ -385,7 +385,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .ai-path h3 { font-size: 1.25rem; }
 .ai-path p { margin: 0; color: var(--text); }
 .ai-path > a { min-height: 44px; display: flex; align-items: center; gap: 8px; }
-.example-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.example-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
 .example-links > a { display: flex; flex-direction: column; gap: 10px; border-top: 2px solid var(--line-2); padding-top: 20px; color: var(--ink); text-decoration: none; }
 .example-links > a:hover { border-color: var(--accent); }
 .example-links .tag { margin-bottom: 0; }
@@ -431,3 +431,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 }
 
 .prototype-heading { margin-top: 32px; }
+.plant-background { margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--line-2); max-width: 960px; color: var(--text); }
+.plant-background h3 { color: var(--ink); }
+.plant-background p:last-child { margin-bottom: 0; }
