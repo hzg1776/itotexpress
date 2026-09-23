@@ -1,31 +1,45 @@
 # IT/OT Express LLC website
 
-Six static pages covering network reviews, technical documentation, websites and AI consulting. The cream-and-blue layout uses local IBM Plex Sans headings, responsive navigation, optimized logos and a direct link to the existing Zoho contact form.
+Seven static pages with local fonts and icons. Node.js is the only development prerequisite. No package installation or paid tooling is required.
 
-## Local review
+## Preview and edit
 
-Node.js 22 or newer; no npm dependencies required.
+Run `node preview.mjs` and open http://127.0.0.1:4173. The preview serves only `dist`, binds to loopback, and sends noindex headers.
+
+- `dist/index.html`: homepage and shared navigation, contact section and footer.
+- `dist/site.css`, `dist/no-script.css`, `dist/app.js`: styles and responsive navigation.
+- `service-pages.mjs`: five service pages, including industrial networks.
+- `sample-content.html` and `sample-page.mjs`: Experience content and generator.
+
+After editing, regenerate service/Experience pages and verify:
 
 ```powershell
 node service-pages.mjs
 node sample-page.mjs
 node check-site.mjs
-node prepare-site.mjs
 node --test build.test.mjs server.test.mjs
-node preview.mjs
 ```
 
-Preview: http://127.0.0.1:4173. It serves `dist/` on loopback with noindex headers. The homepage supplies the shared page shell. Edit service content in `service-pages.mjs` and examples in `sample-content.html`. The fictional lookup runs in the browser and sends no queries to a server.
+## Build a release
 
-## Owner-controlled release
-
-Review and merge the pull request, then check out its exact merged SHA in a separate non-production checkout:
+Use a clean checkout with LF source files (`git -c core.autocrlf=false clone ...`).
 
 ```powershell
+node prepare-site.mjs
 node prepare-site.mjs --release
 node verify-release.mjs
 ```
 
-The generator refuses to overwrite an existing artifact. Preserve any prior build before regenerating. The indexable `release/` directory is the complete static web root; do not expose this repository or its parent directory.
+The build refuses to overwrite existing `candidate/` or `release/` directories. Preserve earlier outputs before rebuilding. Candidate is noindex; release is indexable with canonical URLs, robots and sitemap. Both are ignored build artifacts. `verify-release.mjs` serves the release on an ephemeral loopback port and records SHA-256 hashes in `RELEASE_CHECKS.json`. It never contacts production.
 
-Follow [DEPLOYMENT_HANDOFF.md](DEPLOYMENT_HANDOFF.md) for the owner-run update and rollback. Fonts and icons are credited in [ASSETS.md](ASSETS.md). Contact links retain the existing Zoho destination and hello@itotexpress.com; inbox delivery was not retested for this rebuild.
+## Current content
+
+The homepage offers office-network, industrial-network and documentation paths, followed by AI services and a four-stage project process. The Experience page distinguishes prior-role experience from a clearly labeled fictional documentation excerpt. That excerpt is illustrative, not customer evidence. The reporting example has a qualitative outcome with no invented metrics.
+
+Unconfirmed availability, service coverage, emergency response, travel/assessment charges and support terms are omitted. Do not add rates, credentials, response guarantees or other unknown business details.
+
+Every page links to the existing Zoho inquiry form and `hello@itotexpress.com`. The email link opens the visitor's mail application. The current review opened the form but did not submit a message or test delivery.
+
+## Release handoff
+
+See [DEPLOYMENT_HANDOFF.md](DEPLOYMENT_HANDOFF.md) for validation and the owner-operated release sequence. GitHub publication does not deploy the site. The owner reviews and merges the PR, then controls production deployment.

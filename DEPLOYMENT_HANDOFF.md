@@ -1,26 +1,22 @@
-# Professional Experience Release
+# Buyer-focused website release
 
-Adds the approved industrial-systems background and a Power BI reporting example from the owner's prior employment. Clearly distinguishes that experience from fictional demos and from IT/OT Express LLC client work. No personal contact information, employer/client names, resume file or quantified savings claim is included.
+This revision rewrites the website in clear English and organizes it around a business owner's hiring questions. It adds a dedicated industrial-network page, a four-stage project process, clearer scope descriptions and a labeled fictional documentation excerpt. It retains prior-role attribution for professional experience. Unknown commercial details are omitted.
 
 ## Validation
 
-Six pages and 234 local references pass. Five Node tests and fresh candidate/release builds pass. Release verification covers six pages, 25 linked resources, indexability, contact links, redirects, 404/410 responses and 35 file hashes. Desktop (1440px) and mobile (390px) preview checks passed, including homepage-to-project and project-to-contact navigation, with no captured browser errors. Lighthouse was not rerun for this content update.
+- Seven pages and 285 local references pass static checks.
+- All five build/server tests pass.
+- Release verification checks all seven routes, linked assets, indexing directives, canonical URLs, contact links, redirects, 404 and 410 responses. `RELEASE_CHECKS.json` records the release file hashes.
+- Browser review covered all seven pages at 1440, 768 and 390px, plus the homepage at 320px, with no horizontal overflow or captured console errors. Navigation, anchors and menu dismissal were checked.
+- The contact form opened correctly. No new message was submitted; delivery and response time were not tested.
 
-## Publication and Rollback
+## Owner-operated publication
 
-After merge, rebuild the exact merged revision and compare all release hashes to RELEASE_CHECKS.json. Verify the unchanged server before staging. Back up the current release and deployment metadata outside the public web root, then hash-check the staged release. Replace only static release files using the existing hosting arrangement; no restart, DNS, tunnel or credential changes are needed. Check all public pages and assets, the new content and disclosure, indexability, redirects and expected errors. Restore the preserved release if checks fail.
+1. Review and merge the website PR into `main`. Record the merged commit SHA.
+2. In a fresh non-production checkout of that exact SHA, use `git -c core.autocrlf=false clone` to preserve LF source bytes. Save the committed `RELEASE_CHECKS.json` before running the verifier, which writes a new timestamped report.
+3. Run `node check-site.mjs`, `node --test build.test.mjs server.test.mjs`, `node prepare-site.mjs --release`, and `node verify-release.mjs`. Compare the SHA-256 map with the saved committed manifest; all file names and hashes must match.
+4. Using the owner's existing hosting procedure, confirm the active static release location and preserve a full rollback copy outside the public web root. Replace the complete static release with the verified artifact. This change does not require server, DNS, tunnel, credential or hosting-configuration changes.
+5. Check all seven public pages and linked assets, including `/industrial-networks.html`; confirm robots/sitemap, contact destinations, canonical redirects and expected 404/410 responses. Compare public response bodies with the manifest where applicable. Restore the backup if validation fails.
+6. Record the deployed commit, verification result and rollback location. Do not report publication complete before these checks.
 
-The previously verified hosting location is C:/ITOTExpress/site with local health on port 4181. Recheck before execution. Fresh contact-form delivery was verified earlier in this task; Google crawl requests were accepted but do not establish completed processing.
-
-## Approved Spacing Update - September 22, 2026
-
-The owner requested publication of the reviewed spacing corrections. This static-only update adds breathing room around section focus outlines, aligns card text across desktop/tablet rows, extends the experience divider to its container width, uses shared 32px gaps for comparable two-column sections, and standardizes panel padding to 24px desktop/tablet and 20px mobile. Keyboard focus cues are retained. No server or hosting configuration changes are required.
-
-Local browser QA covered all six pages at 1440px, 768px and 390px, plus the homepage at 320px, with no page-wide overflow or captured warnings/errors. Reporting jump navigation and subsequent keyboard focus passed. Current release hashes are recorded in RELEASE_CHECKS.json. The existing approved static-release process preserves a rollback copy and verifies public content and assets before recording success.
-
-
-## Real Experience and Direct Copy - September 22, 2026
-
-The owner approved replacing fictional examples with resume-based professional experience and requested publication. The Experience page covers industrial networks, controls connectivity, Power BI reporting, business systems and documentation, with one brief explanation of prior-role context. Homepage/service wording is more direct. The invented network case, handover example and lookup demo have been removed, including their three browser modules. The existing samples.html route is retained; internal links now point to the real experience sections.
-
-All six pages were checked at 1440, 768 and 390px with no page-wide overflow or captured errors. Reporting navigation and the contact link passed. The release is static-only, preserves the spacing corrections and existing contact destinations, and requires no server changes. The release manifest records the exact normalized artifact hashes.
+The agent prepared and checked this release locally. Production deployment remains owner-operated under the repository rules; no production access or deployment was performed for this revision.
