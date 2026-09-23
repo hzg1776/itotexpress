@@ -9,6 +9,10 @@ The cropped company logos, favicon, network illustration and icons came from the
 
 All page fonts and assets are hosted locally. No Google font request is made by a visitor. Unused large logo/image assets and unused icon/favicon variants were moved to the archive.
 
+## Owner-supplied PRP diagram — September 23, 2026
+
+`dist/assets/prp-network-redundant-paths.jpg` is the original JPEG supplied by the owner for replacing the sample illustration. It is copied without alteration and displayed at its original aspect ratio, with a full-size link. The caption identifies it as a network illustration; authorship and customer-project provenance have not been supplied and are not claimed.
+
 ## Delivery optimization — September 22, 2026
 
 The header and footer use lossless WebP copies through `<picture>`, retaining the original PNGs as fallbacks and the existing dimensions. Pixel-by-pixel RGBA comparisons passed for both originals and decoded WebP copies. Header: 35,400 to 24,636 bytes; footer: 18,094 to 11,382 bytes. Combined savings: 17,476 bytes (32.7%). The footer image uses native lazy loading and asynchronous decoding.

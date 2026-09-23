@@ -505,6 +505,12 @@ main:focus-visible > section:first-child > .wrap {
   .primary-services .get { align-items: flex-start; }
 }
 
+.network-diagram { margin: 28px 0; }
+.network-diagram-image { display: block; background: #fff; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.network-diagram-image img { display: block; width: 100%; height: auto; }
+.network-diagram figcaption { margin-top: 14px; color: var(--text); font-size: .9375rem; line-height: 1.6; }
+.network-diagram figcaption a { text-decoration: underline; text-underline-offset: 3px; }
+
 /* Share heading and body tracks across a row; stacked mobile cards stay natural. */
 @supports (grid-template-rows: subgrid) {
   @media (min-width: 761px) {
