@@ -1,11 +1,11 @@
 {
-  "checkedAt": "2026-09-23T01:23:59.631Z",
+  "checkedAt": "2026-09-23T01:44:47.962Z",
   "target": "ephemeral loopback release only",
   "pages": 6,
-  "linkedResources": 25,
+  "linkedResources": 24,
   "checks": "passed",
   "sha256": {
-    "ai-analysis.html": "fcb96bafd048111213038c212b7dd3759c7f0a754c4cdeea077c0b4c30560dbb",
+    "ai-analysis.html": "d0d0de8961f637c5b23139e3a519eb095370f432710995a3324f4926eaed08a7",
     "app.js": "6759addc77acc68aeccb9562a608b9d892c86aab3383f8fa7f9c00faba6685c1",
     "assets/fonts/bricolage-grotesque-700.woff2": "5dfb9136406d20807ba9cf62566dfdc5c8ec4eeef16571bb03c68ee7fe59a1b1",
     "assets/fonts/bricolagegrotesque-OFL.txt": "9e75de0268df02ccd432ce3e438b0a316c48a8170fd447aeadf0142541b667a6",
@@ -26,19 +26,16 @@
     "assets/logo-light.webp": "5bdd0f8575d0b96738e498b57a896f9354ebc2faf6bac4a13af261419afe9984",
     "assets/logo.png": "85ba537f9d2225bd93590cb726baf9e800850f53bd768b39b9f703babeb9760a",
     "assets/logo.webp": "8c20151af80a7d0662d6e742a80109000130f93e66a5a8cd888604ad8e454853",
-    "demo-passages.js": "62807349c9d7a04fbebbd7d599575cf637a01a8d4b77c44fa7f8541a23355961",
-    "demo-retrieval.js": "8987122f0a6089adb3102d062cf8ad050b184064bfcdc4d79951907baf59bdea",
     "favicon-20260922.png": "5a87f0f712050b771059cd727091c4e447f3200ef3c358af3510ecfe736e1afc",
     "favicon.ico": "ef2eadb89e070578f87d92e337835351feac2adbdd84e5a343ddcee671a7f9f6",
-    "index.html": "e15aa3066c635fd1153572ca674ab3193027deb9dc7a6df53a92e72b1ab0c27c",
-    "network-audits.html": "e6eb6f609ab810237dc891cc14812e397e3184a876a83f86c7a8a31cc498b067",
+    "index.html": "6294f338d9167ace3d4a5cb06b0a6be8492479067ad13b5a3baa09d323d26eb8",
+    "network-audits.html": "b6b4dd4e9ae2e6b218c4be9871a90b4a89614a4bc4b27eb1516938aa5ffff7b4",
     "no-script.css": "0daa6a862901072d0e87e6752891e752119dfbc2f9ff0b81f4b024a59e80d87c",
     "robots.txt": "a532fc0f048c50f5d30d4501907da0edc89972e44b0ff6a19a3fdf06772f3ae5",
-    "sample-demo.js": "ff2705cc28171ee258d326b3834072ba7f964282d2fb0ca22754c091744a249b",
-    "samples.html": "544c80373c5ac5fdbaac2a78b8698941345754baedea1ef57f75c3301efb5697",
-    "site.css": "487c1f7fa7d12f5b90ef10cf6aae6d6889ce5de18dac6304e17f9aff87612e5e",
+    "samples.html": "7dc7f91b5481518686206bfc1340ecf96b952e8778cb60859c51729e05c89b85",
+    "site.css": "e1e397a4da8e46d0263010f129938456c6c5497cb44fca79a0fee999a71363f7",
     "sitemap.xml": "2ab183629d844afbf1c2b40e0ccfbdbfb37faa82254f65b2b2b917427fda47bf",
-    "technical-documentation.html": "2dca2d02f5f4ea835c80c199e94b5e2af0fb7363b9f6972af2d0b77447b43a83",
-    "website-development.html": "1c36c2836931d65d7d6ad33fd2f0ae94d28596f2b179100755d5de135a97d0ba"
+    "technical-documentation.html": "0db4c6af7007e3f73809b3cbbfe6c7a622b655afe7af808f1437c0e743cff17f",
+    "website-development.html": "d001fa2a7d99803c9237343e08d1266f902206f26990c9da9169f178da2d95a1"
   }
 }

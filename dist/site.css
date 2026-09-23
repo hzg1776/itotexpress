@@ -227,6 +227,7 @@ main:focus-visible > section:first-child > .wrap {
 .page-contents a:hover { color: var(--accent); }
 
 .service-body, .sample-body { padding-bottom: 40px; }
+.sample-body .scope-grid { margin-bottom: 24px; }
 .service-block { padding-block: 64px; border-bottom: 1px solid var(--line); }
 .service-block:last-child { border-bottom: 0; }
 .service-block h2 { margin-bottom: 18px; }
