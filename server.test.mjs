@@ -5,6 +5,26 @@ import {readFile} from 'node:fs/promises';
 import {createSiteServer} from './server.mjs';
 import {gunzipSync} from 'node:zlib';
 
+test('published analytics policy permits only the Cloudflare script and same-origin reporting', async () => {
+  for (const published of [false, true]) {
+    const server = await createSiteServer({directory: new URL('./dist/', import.meta.url), port:4180, published});
+    await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+    try {
+      const response = await new Promise((resolve, reject) => {
+        http.get({host:'127.0.0.1', port:server.address().port, path:'/', headers:{Host:'localhost:4180'}}, res => {
+          res.resume(); res.on('end', () => resolve(res));
+        }).on('error', reject);
+      });
+      const policy = response.headers['content-security-policy'];
+      const directives = Object.fromEntries(policy.split(';').map(part => part.trim().split(/\s+/)).map(([name,...values]) => [name, values.join(' ')]));
+      assert.equal(directives['script-src'], published ? "'self' https://static.cloudflareinsights.com" : "'self'");
+      assert.equal(directives['connect-src'], published ? "'self'" : "'none'");
+      for (const directive of ['form-action','base-uri','frame-ancestors']) assert.equal(directives[directive],"'none'");
+      assert.doesNotMatch(policy,/unsafe-inline|unsafe-eval|\*/);
+    } finally {await new Promise(resolve => server.close(resolve));}
+  }
+});
+
 test('text compression preserves content, HEAD length and explicit gzip opt-out', async () => {
   const server = await createSiteServer({directory: new URL('./dist/', import.meta.url), port: 4180});
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
@@ -53,7 +73,7 @@ test('published host handling with a noindex test candidate: files, redirects, i
     assert.equal((await request('/site.css')).headers['content-type'],'text/css; charset=utf-8');
     const head=await request('/','itotexpress.com','HEAD');assert.equal(head.status,200);assert.equal(head.body,'');
     const policy=head.headers['content-security-policy'];
-    assert.match(policy,/connect-src 'none';/);
+    assert.match(policy,/connect-src 'self';/);
     assert.match(policy,/form-action 'none';/);
     assert.match(policy,/frame-ancestors 'none'/);
     assert.equal((await request('/','evil.example')).status,403);
