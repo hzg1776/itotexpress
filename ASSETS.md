@@ -9,6 +9,12 @@ The cropped company logos, favicon, network illustration and icons came from the
 
 All page fonts and assets are hosted locally. No Google font request is made by a visitor. Unused large logo/image assets and unused icon/favicon variants were moved to the archive.
 
+## CPwE architecture — September 23, 2026
+
+At the owner's request, `dist/assets/cpwe-it-ot-architecture.jpg` uses the original embedded JPEG from PDF page 9 (Figure 1-2) of *Physical Infrastructure for the Converged Plantwide Ethernet Architecture*, February 2023, ENET-TD020B-EN-P, supplied by the owner. The caption credits Cisco, Panduit, and Rockwell Automation. It is a reference architecture, not a claimed customer installation or vendor endorsement.
+
+The JPEG is extracted without recompression or visual modification: 1468 × 927 pixels, 325,512 bytes. It replaces a 5,527,016-byte owner-supplied screenshot containing a Windows activation overlay, reducing transfer size by 94.1%. The homepage loads it lazily and offers a link to its full size. The supplied PDF and screenshot remain outside the public release.
+
 ## Owner-supplied PRP diagram — September 23, 2026
 
 `dist/assets/prp-network-redundant-paths.jpg` is the original JPEG supplied by the owner for replacing the sample illustration. It is copied without alteration and displayed at its original aspect ratio, with a full-size link. The caption identifies it as a network illustration; authorship and customer-project provenance have not been supplied and are not claimed.
