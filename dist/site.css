@@ -156,7 +156,9 @@ main:focus-visible > section:first-child > .wrap {
 
 .hero-schematic { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px 14px; }
 .hero-schematic .sheet-head { display: flex; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: .75rem; letter-spacing: .04em; color: var(--muted); margin-bottom: 6px; }
-.hero-schematic svg { width: 100%; height: auto; }
+.hero-prp-image { display: block; background: #fff; border-radius: 6px; overflow: hidden; margin-block: 12px; }
+.hero-prp-image img { display: block; width: 100%; height: auto; }
+.hero-prp figcaption a { text-decoration: underline; text-underline-offset: 3px; }
 .hero-schematic figcaption { font-family: var(--mono); font-size: .75rem; color: var(--muted); border-top: 1px dashed var(--line-2); padding-top: 10px; margin-top: 4px; }
 .sch-grid { fill: var(--line); }
 .sch-ink { stroke: var(--ink); fill: var(--card); stroke-width: 1.6; }
@@ -424,6 +426,7 @@ main:focus-visible > section:first-child > .wrap {
   .home-hero h1 { font-size: clamp(2rem, 8.5vw, 2.75rem); line-height: 1.07; margin-bottom: 20px; }
   .hero-summary { font-size: 1.0625rem; margin-bottom: 24px; }
   .hero-schematic { display: none; }
+  .hero-schematic.hero-prp { display: block; }
   .home-section { padding-block: 40px; }
   .service-card { gap: 12px; padding: var(--panel-padding); }
   .service-card-top { display: none; }
@@ -504,12 +507,6 @@ main:focus-visible > section:first-child > .wrap {
   .hero-note { font-size: .875rem; }
   .primary-services .get { align-items: flex-start; }
 }
-
-.network-diagram { margin: 28px 0; }
-.network-diagram-image { display: block; background: #fff; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
-.network-diagram-image img { display: block; width: 100%; height: auto; }
-.network-diagram figcaption { margin-top: 14px; color: var(--text); font-size: .9375rem; line-height: 1.6; }
-.network-diagram figcaption a { text-decoration: underline; text-underline-offset: 3px; }
 
 /* Share heading and body tracks across a row; stacked mobile cards stay natural. */
 @supports (grid-template-rows: subgrid) {
