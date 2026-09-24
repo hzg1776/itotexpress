@@ -563,3 +563,12 @@ main:focus-visible > section:first-child > .wrap {
     .sample-findings :is(h4, p) { margin: 0; }
   }
 }
+
+/* Purdue reference drawing and free printable/editable downloads. */
+#purdue-model { scroll-margin-top: 110px; }
+#purdue-model > h3 { margin-top: 32px; font-size: clamp(1.25rem, 2.2vw, 1.75rem); }
+#purdue-model > p { max-width: 85ch; }
+.purdue-downloads { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 16px; }
+.purdue-downloads .button { white-space: normal; text-align: center; }
+.purdue-reference-note { color: var(--muted); font-size: .9375rem; margin-bottom: 32px; }
+@media (max-width: 520px) { .purdue-downloads .button { width: 100%; justify-content: center; } }
