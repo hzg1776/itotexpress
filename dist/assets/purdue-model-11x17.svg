@@ -1,0 +1,334 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1224" height="792" viewBox="0 0 1224 792" role="img" aria-labelledby="title desc">
+<title id="title">The Purdue Model: IT and OT segmentation</title>
+<desc id="desc">Six functional levels from enterprise IT to physical processes, with an industrial DMZ at Level 3.5. Includes segmentation, blast radius reduction and Zero Trust context.</desc>
+<rect width="1224" height="792" fill="white"/>
+<rect x="0" y="0" width="1224" height="101" fill="#12283B" stroke="none" stroke-width="1"/>
+<rect x="36" y="27" width="5" height="48" fill="#54C3B1" stroke="none" stroke-width="1"/>
+<text x="55" y="52.760000000000005" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF" text-anchor="start">THE PURDUE MODEL</text>
+<text x="56" y="80.09" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#CFDDE7" text-anchor="start">IT / OT segmentation  |  Six functional levels + an industrial DMZ security boundary</text>
+<text x="1187" y="39.230000000000004" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#CFDDE7" text-anchor="end">REFERENCE ARCHITECTURE</text>
+<text x="1187" y="63.230000000000004" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#FFFFFF" text-anchor="end">11 x 17 in  /  Landscape</text>
+<text x="36" y="123.695" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="400" fill="#516577" text-anchor="start">Cybersecurity adaptation of the Purdue Enterprise Reference Architecture (PERA).</text>
+<text x="110" y="140.649" font-family="Arial, Helvetica, sans-serif" font-size="9.3" font-weight="700" fill="#516577" text-anchor="start">LEVEL / FUNCTION</text>
+<text x="405" y="140.649" font-family="Arial, Helvetica, sans-serif" font-size="9.3" font-weight="700" fill="#516577" text-anchor="start">REPRESENTATIVE EQUIPMENT AND SYSTEMS</text>
+<rect x="36" y="146" width="52" height="136" fill="#205BA8" stroke="none" stroke-width="1"/>
+<text x="62.0" y="197.09" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">IT</text>
+<text x="62.0" y="212.04" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">ZONE</text>
+<rect x="36" y="302" width="52" height="100" fill="#A9680B" stroke="none" stroke-width="1"/>
+<text x="62.0" y="340.695" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">IT/OT</text>
+<text x="62.0" y="353.92" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">EDGE</text>
+<rect x="36" y="422" width="52" height="284" fill="#167466" stroke="none" stroke-width="1"/>
+<text x="62.0" y="552.09" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">OT</text>
+<text x="62.0" y="567.0400000000001" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">ZONE</text>
+<rect x="99" y="146" width="789" height="62" fill="#EDF4FC" stroke="#D6E0E6" stroke-width="0.8"/>
+<rect x="111" y="158" width="44" height="38" fill="#205BA8" stroke="none" stroke-width="1"/>
+<text x="133.0" y="183.32" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">5</text>
+<text x="174" y="170.88" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#205BA8" text-anchor="start">Enterprise</text>
+<text x="174" y="191.602" font-family="Arial, Helvetica, sans-serif" font-size="11.4" font-weight="400" fill="#516577" text-anchor="start">Global corporate IT</text>
+<ellipse cx="461.0" cy="167.0" rx="6.0" ry="6.0" fill="#FFFFFF" stroke="#205BA8" stroke-width="1.3"/>
+<ellipse cx="469.0" cy="161.0" rx="8.0" ry="8.0" fill="#FFFFFF" stroke="#205BA8" stroke-width="1.3"/>
+<ellipse cx="478.0" cy="167.0" rx="6.0" ry="6.0" fill="#FFFFFF" stroke="#205BA8" stroke-width="1.3"/>
+<rect x="460" y="165" width="20" height="8" fill="#FFFFFF" stroke="none" stroke-width="1"/>
+<line x1="460" y1="173" x2="480" y2="173" fill="none" stroke="#205BA8" stroke-width="1.3"/>
+<text x="471.0" y="195.858" font-family="Arial, Helvetica, sans-serif" font-size="10.6" font-weight="400" fill="#12283B" text-anchor="middle">Cloud platforms</text>
+<rect x="601" y="153" width="26" height="7" fill="#FFFFFF" stroke="#205BA8" stroke-width="1.2"/>
+<ellipse cx="605.0" cy="156.5" rx="1.0" ry="1.0" fill="#205BA8" stroke="none" stroke-width="1"/>
+<line x1="610" y1="156.5" x2="623" y2="156.5" fill="none" stroke="#205BA8" stroke-width="0.8"/>
+<rect x="601" y="162" width="26" height="7" fill="#FFFFFF" stroke="#205BA8" stroke-width="1.2"/>
+<ellipse cx="605.0" cy="165.5" rx="1.0" ry="1.0" fill="#205BA8" stroke="none" stroke-width="1"/>
+<line x1="610" y1="165.5" x2="623" y2="165.5" fill="none" stroke="#205BA8" stroke-width="0.8"/>
+<rect x="601" y="171" width="26" height="7" fill="#FFFFFF" stroke="#205BA8" stroke-width="1.2"/>
+<ellipse cx="605.0" cy="174.5" rx="1.0" ry="1.0" fill="#205BA8" stroke="none" stroke-width="1"/>
+<line x1="610" y1="174.5" x2="623" y2="174.5" fill="none" stroke="#205BA8" stroke-width="0.8"/>
+<text x="616.0" y="195.858" font-family="Arial, Helvetica, sans-serif" font-size="10.6" font-weight="400" fill="#12283B" text-anchor="middle">Corporate apps</text>
+<ellipse cx="759.0" cy="166.0" rx="13.0" ry="13.0" fill="none" stroke="#205BA8" stroke-width="1.3"/>
+<line x1="746" y1="166" x2="772" y2="166" fill="none" stroke="#205BA8" stroke-width="1"/>
+<line x1="759" y1="153" x2="759" y2="179" fill="none" stroke="#205BA8" stroke-width="1"/>
+<line x1="749" y1="159" x2="769" y2="159" fill="none" stroke="#205BA8" stroke-width="0.8"/>
+<line x1="749" y1="173" x2="769" y2="173" fill="none" stroke="#205BA8" stroke-width="0.8"/>
+<text x="761.0" y="195.858" font-family="Arial, Helvetica, sans-serif" font-size="10.6" font-weight="400" fill="#12283B" text-anchor="middle">External services</text>
+<rect x="99" y="220" width="789" height="62" fill="#EDF4FC" stroke="#D6E0E6" stroke-width="0.8"/>
+<rect x="111" y="232" width="44" height="38" fill="#205BA8" stroke="none" stroke-width="1"/>
+<text x="133.0" y="257.32" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">4</text>
+<text x="174" y="244.88" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#205BA8" text-anchor="start">Business Systems</text>
+<text x="174" y="265.602" font-family="Arial, Helvetica, sans-serif" font-size="11.4" font-weight="400" fill="#516577" text-anchor="start">Business planning</text>
+<rect x="456" y="227" width="26" height="7" fill="#FFFFFF" stroke="#205BA8" stroke-width="1.2"/>
+<ellipse cx="460.0" cy="230.5" rx="1.0" ry="1.0" fill="#205BA8" stroke="none" stroke-width="1"/>
+<line x1="465" y1="230.5" x2="478" y2="230.5" fill="none" stroke="#205BA8" stroke-width="0.8"/>
+<rect x="456" y="236" width="26" height="7" fill="#FFFFFF" stroke="#205BA8" stroke-width="1.2"/>
+<ellipse cx="460.0" cy="239.5" rx="1.0" ry="1.0" fill="#205BA8" stroke="none" stroke-width="1"/>
+<line x1="465" y1="239.5" x2="478" y2="239.5" fill="none" stroke="#205BA8" stroke-width="0.8"/>
+<rect x="456" y="245" width="26" height="7" fill="#FFFFFF" stroke="#205BA8" stroke-width="1.2"/>
+<ellipse cx="460.0" cy="248.5" rx="1.0" ry="1.0" fill="#205BA8" stroke="none" stroke-width="1"/>
+<line x1="465" y1="248.5" x2="478" y2="248.5" fill="none" stroke="#205BA8" stroke-width="0.8"/>
+<text x="471.0" y="269.858" font-family="Arial, Helvetica, sans-serif" font-size="10.6" font-weight="400" fill="#12283B" text-anchor="middle">ERP</text>
+<rect x="601" y="229" width="26" height="23" fill="#FFFFFF" stroke="#205BA8" stroke-width="1.3"/>
+<line x1="606" y1="234" x2="622" y2="234" fill="none" stroke="#205BA8" stroke-width="1"/>
+<line x1="606" y1="240" x2="622" y2="240" fill="none" stroke="#205BA8" stroke-width="1"/>
+<line x1="606" y1="246" x2="622" y2="246" fill="none" stroke="#205BA8" stroke-width="1"/>
+<text x="616.0" y="269.858" font-family="Arial, Helvetica, sans-serif" font-size="10.6" font-weight="400" fill="#12283B" text-anchor="middle">Logistics</text>
+<rect x="746" y="229" width="26" height="23" fill="#FFFFFF" stroke="#205BA8" stroke-width="1.3"/>
+<line x1="751" y1="234" x2="767" y2="234" fill="none" stroke="#205BA8" stroke-width="1"/>
+<line x1="751" y1="240" x2="767" y2="240" fill="none" stroke="#205BA8" stroke-width="1"/>
+<line x1="751" y1="246" x2="767" y2="246" fill="none" stroke="#205BA8" stroke-width="1"/>
+<text x="761.0" y="269.858" font-family="Arial, Helvetica, sans-serif" font-size="10.6" font-weight="400" fill="#12283B" text-anchor="middle">Finance</text>
+<rect x="99" y="422" width="789" height="62" fill="#EDF7F3" stroke="#D6E0E6" stroke-width="0.8"/>
+<rect x="111" y="434" width="44" height="38" fill="#167466" stroke="none" stroke-width="1"/>
+<text x="133.0" y="459.32" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+<text x="174" y="440.485" font-family="Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#167466" text-anchor="start">Operations</text>
+<text x="174" y="457.16" font-family="Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#167466" text-anchor="start">Management</text>
+<text x="174" y="475.044" font-family="Arial, Helvetica, sans-serif" font-size="10.8" font-weight="400" fill="#516577" text-anchor="start">Production workflows</text>
+<rect x="456" y="429" width="26" height="7" fill="#FFFFFF" stroke="#167466" stroke-width="1.2"/>
+<ellipse cx="460.0" cy="432.5" rx="1.0" ry="1.0" fill="#167466" stroke="none" stroke-width="1"/>
+<line x1="465" y1="432.5" x2="478" y2="432.5" fill="none" stroke="#167466" stroke-width="0.8"/>
+<rect x="456" y="438" width="26" height="7" fill="#FFFFFF" stroke="#167466" stroke-width="1.2"/>
+<ellipse cx="460.0" cy="441.5" rx="1.0" ry="1.0" fill="#167466" stroke="none" stroke-width="1"/>
+<line x1="465" y1="441.5" x2="478" y2="441.5" fill="none" stroke="#167466" stroke-width="0.8"/>
+<rect x="456" y="447" width="26" height="7" fill="#FFFFFF" stroke="#167466" stroke-width="1.2"/>
+<ellipse cx="460.0" cy="450.5" rx="1.0" ry="1.0" fill="#167466" stroke="none" stroke-width="1"/>
+<line x1="465" y1="450.5" x2="478" y2="450.5" fill="none" stroke="#167466" stroke-width="0.8"/>
+<text x="471.0" y="471.858" font-family="Arial, Helvetica, sans-serif" font-size="10.6" font-weight="400" fill="#12283B" text-anchor="middle">MES</text>
+<rect x="601" y="429" width="26" height="7" fill="#FFFFFF" stroke="#167466" stroke-width="1.2"/>
+<ellipse cx="605.0" cy="432.5" rx="1.0" ry="1.0" fill="#167466" stroke="none" stroke-width="1"/>
+<line x1="610" y1="432.5" x2="623" y2="432.5" fill="none" stroke="#167466" stroke-width="0.8"/>
+<rect x="601" y="438" width="26" height="7" fill="#FFFFFF" stroke="#167466" stroke-width="1.2"/>
+<ellipse cx="605.0" cy="441.5" rx="1.0" ry="1.0" fill="#167466" stroke="none" stroke-width="1"/>
+<line x1="610" y1="441.5" x2="623" y2="441.5" fill="none" stroke="#167466" stroke-width="0.8"/>
+<rect x="601" y="447" width="26" height="7" fill="#FFFFFF" stroke="#167466" stroke-width="1.2"/>
+<ellipse cx="605.0" cy="450.5" rx="1.0" ry="1.0" fill="#167466" stroke="none" stroke-width="1"/>
+<line x1="610" y1="450.5" x2="623" y2="450.5" fill="none" stroke="#167466" stroke-width="0.8"/>
+<text x="616.0" y="471.858" font-family="Arial, Helvetica, sans-serif" font-size="10.6" font-weight="400" fill="#12283B" text-anchor="middle">Data historians</text>
+<rect x="745" y="429" width="28" height="20" fill="#FFFFFF" stroke="#167466" stroke-width="1.3"/>
+<line x1="759" y1="449" x2="759" y2="455" fill="none" stroke="#167466" stroke-width="1.3"/>
+<line x1="751" y1="455" x2="767" y2="455" fill="none" stroke="#167466" stroke-width="1.3"/>
+<line x1="749" y1="443" x2="754" y2="438" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="754" y1="438" x2="760" y2="441" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="760" y1="441" x2="768" y2="434" fill="none" stroke="#167466" stroke-width="1"/>
+<text x="761.0" y="471.858" font-family="Arial, Helvetica, sans-serif" font-size="10.6" font-weight="400" fill="#12283B" text-anchor="middle">Operations tools</text>
+<rect x="99" y="496" width="789" height="62" fill="#EDF7F3" stroke="#D6E0E6" stroke-width="0.8"/>
+<rect x="111" y="508" width="44" height="38" fill="#167466" stroke="none" stroke-width="1"/>
+<text x="133.0" y="533.32" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+<text x="174" y="520.88" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#167466" text-anchor="start">Control Systems</text>
+<text x="174" y="541.602" font-family="Arial, Helvetica, sans-serif" font-size="11.4" font-weight="400" fill="#516577" text-anchor="start">Supervisory control</text>
+<rect x="455" y="503" width="28" height="20" fill="#FFFFFF" stroke="#167466" stroke-width="1.3"/>
+<line x1="469" y1="523" x2="469" y2="529" fill="none" stroke="#167466" stroke-width="1.3"/>
+<line x1="461" y1="529" x2="477" y2="529" fill="none" stroke="#167466" stroke-width="1.3"/>
+<line x1="459" y1="517" x2="464" y2="512" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="464" y1="512" x2="470" y2="515" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="470" y1="515" x2="478" y2="508" fill="none" stroke="#167466" stroke-width="1"/>
+<text x="471.0" y="545.858" font-family="Arial, Helvetica, sans-serif" font-size="10.6" font-weight="400" fill="#12283B" text-anchor="middle">SCADA</text>
+<rect x="600" y="503" width="28" height="20" fill="#FFFFFF" stroke="#167466" stroke-width="1.3"/>
+<line x1="614" y1="523" x2="614" y2="529" fill="none" stroke="#167466" stroke-width="1.3"/>
+<line x1="606" y1="529" x2="622" y2="529" fill="none" stroke="#167466" stroke-width="1.3"/>
+<line x1="604" y1="517" x2="609" y2="512" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="609" y1="512" x2="615" y2="515" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="615" y1="515" x2="623" y2="508" fill="none" stroke="#167466" stroke-width="1"/>
+<text x="616.0" y="545.858" font-family="Arial, Helvetica, sans-serif" font-size="10.6" font-weight="400" fill="#12283B" text-anchor="middle">HMIs</text>
+<rect x="745" y="506" width="28" height="21" fill="#FFFFFF" stroke="#167466" stroke-width="1.3"/>
+<rect x="749" y="510" width="8" height="8" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="762" y1="510" x2="762" y2="523" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="766" y1="510" x2="766" y2="523" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="770" y1="510" x2="770" y2="523" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="750" y1="502" x2="750" y2="506" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="750" y1="527" x2="750" y2="531" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="756" y1="502" x2="756" y2="506" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="756" y1="527" x2="756" y2="531" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="762" y1="502" x2="762" y2="506" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="762" y1="527" x2="762" y2="531" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="768" y1="502" x2="768" y2="506" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="768" y1="527" x2="768" y2="531" fill="none" stroke="#167466" stroke-width="1"/>
+<text x="761.0" y="545.858" font-family="Arial, Helvetica, sans-serif" font-size="10.6" font-weight="400" fill="#12283B" text-anchor="middle">Distributed control</text>
+<rect x="99" y="570" width="789" height="62" fill="#EDF7F3" stroke="#D6E0E6" stroke-width="0.8"/>
+<rect x="111" y="582" width="44" height="38" fill="#167466" stroke="none" stroke-width="1"/>
+<text x="133.0" y="607.32" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+<text x="174" y="594.88" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#167466" text-anchor="start">Intelligent Devices</text>
+<text x="174" y="615.602" font-family="Arial, Helvetica, sans-serif" font-size="11.4" font-weight="400" fill="#516577" text-anchor="start">Direct equipment control</text>
+<rect x="455" y="580" width="28" height="21" fill="#FFFFFF" stroke="#167466" stroke-width="1.3"/>
+<rect x="459" y="584" width="8" height="8" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="472" y1="584" x2="472" y2="597" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="476" y1="584" x2="476" y2="597" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="480" y1="584" x2="480" y2="597" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="460" y1="576" x2="460" y2="580" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="460" y1="601" x2="460" y2="605" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="466" y1="576" x2="466" y2="580" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="466" y1="601" x2="466" y2="605" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="472" y1="576" x2="472" y2="580" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="472" y1="601" x2="472" y2="605" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="478" y1="576" x2="478" y2="580" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="478" y1="601" x2="478" y2="605" fill="none" stroke="#167466" stroke-width="1"/>
+<text x="471.0" y="619.858" font-family="Arial, Helvetica, sans-serif" font-size="10.6" font-weight="400" fill="#12283B" text-anchor="middle">PLCs</text>
+<rect x="600" y="580" width="28" height="21" fill="#FFFFFF" stroke="#167466" stroke-width="1.3"/>
+<rect x="604" y="584" width="8" height="8" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="617" y1="584" x2="617" y2="597" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="621" y1="584" x2="621" y2="597" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="625" y1="584" x2="625" y2="597" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="605" y1="576" x2="605" y2="580" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="605" y1="601" x2="605" y2="605" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="611" y1="576" x2="611" y2="580" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="611" y1="601" x2="611" y2="605" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="617" y1="576" x2="617" y2="580" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="617" y1="601" x2="617" y2="605" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="623" y1="576" x2="623" y2="580" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="623" y1="601" x2="623" y2="605" fill="none" stroke="#167466" stroke-width="1"/>
+<text x="616.0" y="619.858" font-family="Arial, Helvetica, sans-serif" font-size="10.6" font-weight="400" fill="#12283B" text-anchor="middle">RTUs</text>
+<rect x="745" y="580" width="28" height="21" fill="#FFFFFF" stroke="#167466" stroke-width="1.3"/>
+<rect x="749" y="584" width="8" height="8" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="762" y1="584" x2="762" y2="597" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="766" y1="584" x2="766" y2="597" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="770" y1="584" x2="770" y2="597" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="750" y1="576" x2="750" y2="580" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="750" y1="601" x2="750" y2="605" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="756" y1="576" x2="756" y2="580" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="756" y1="601" x2="756" y2="605" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="762" y1="576" x2="762" y2="580" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="762" y1="601" x2="762" y2="605" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="768" y1="576" x2="768" y2="580" fill="none" stroke="#167466" stroke-width="1"/>
+<line x1="768" y1="601" x2="768" y2="605" fill="none" stroke="#167466" stroke-width="1"/>
+<text x="761.0" y="619.858" font-family="Arial, Helvetica, sans-serif" font-size="10.6" font-weight="400" fill="#12283B" text-anchor="middle">Local controllers</text>
+<rect x="99" y="644" width="789" height="62" fill="#EDF7F3" stroke="#D6E0E6" stroke-width="0.8"/>
+<rect x="111" y="656" width="44" height="38" fill="#167466" stroke="none" stroke-width="1"/>
+<text x="133.0" y="681.32" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">0</text>
+<text x="174" y="668.88" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#167466" text-anchor="start">Physical Process</text>
+<text x="174" y="689.602" font-family="Arial, Helvetica, sans-serif" font-size="11.4" font-weight="400" fill="#516577" text-anchor="start">Real-world physics</text>
+<ellipse cx="469.0" cy="662.0" rx="10.0" ry="10.0" fill="#FFFFFF" stroke="#167466" stroke-width="1.3"/>
+<line x1="469" y1="662" x2="474" y2="656" fill="none" stroke="#167466" stroke-width="1.3"/>
+<line x1="469" y1="672" x2="469" y2="679" fill="none" stroke="#167466" stroke-width="1.3"/>
+<text x="471.0" y="693.858" font-family="Arial, Helvetica, sans-serif" font-size="10.6" font-weight="400" fill="#12283B" text-anchor="middle">Sensors / actuators</text>
+<line x1="598" y1="668" x2="630" y2="668" fill="none" stroke="#167466" stroke-width="1.4"/>
+<polygon points="603,659 625,677 625,659 603,677" fill="#FFFFFF" stroke="#167466" stroke-width="1.3"/>
+<line x1="614" y1="668" x2="614" y2="653" fill="none" stroke="#167466" stroke-width="1.3"/>
+<line x1="607" y1="653" x2="621" y2="653" fill="none" stroke="#167466" stroke-width="1.3"/>
+<text x="616.0" y="693.858" font-family="Arial, Helvetica, sans-serif" font-size="10.6" font-weight="400" fill="#12283B" text-anchor="middle">Pumps / valves</text>
+<ellipse cx="759.0" cy="663.0" rx="11.0" ry="11.0" fill="#FFFFFF" stroke="#167466" stroke-width="1.3"/>
+<text x="759.0" y="666.23" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#167466" text-anchor="middle">M</text>
+<line x1="770" y1="663" x2="776" y2="663" fill="none" stroke="#167466" stroke-width="1.4"/>
+<line x1="751" y1="675" x2="767" y2="675" fill="none" stroke="#167466" stroke-width="1.4"/>
+<line x1="754" y1="673" x2="754" y2="675" fill="none" stroke="#167466" stroke-width="1.2"/>
+<line x1="764" y1="673" x2="764" y2="675" fill="none" stroke="#167466" stroke-width="1.2"/>
+<text x="761.0" y="693.858" font-family="Arial, Helvetica, sans-serif" font-size="10.6" font-weight="400" fill="#12283B" text-anchor="middle">Motors / machinery</text>
+<rect x="99" y="302" width="789" height="100" fill="#FFF3DC" stroke="#DCAD5B" stroke-width="1.2"/>
+<rect x="110" y="327" width="47" height="38" fill="#A9680B" stroke="none" stroke-width="1"/>
+<text x="133.5" y="351.6" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">3.5</text>
+<text x="174" y="332.74" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#A9680B" text-anchor="start">Industrial DMZ</text>
+<text x="174" y="356.044" font-family="Arial, Helvetica, sans-serif" font-size="10.8" font-weight="400" fill="#516577" text-anchor="start">Enforced security boundary</text>
+<text x="174" y="368.464" font-family="Arial, Helvetica, sans-serif" font-size="10.8" font-weight="400" fill="#516577" text-anchor="start">Separate network / mediated access</text>
+<rect x="456" y="314" width="26" height="7" fill="#FFFFFF" stroke="#A9680B" stroke-width="1.2"/>
+<ellipse cx="460.0" cy="317.5" rx="1.0" ry="1.0" fill="#A9680B" stroke="none" stroke-width="1"/>
+<line x1="465" y1="317.5" x2="478" y2="317.5" fill="none" stroke="#A9680B" stroke-width="0.8"/>
+<rect x="456" y="323" width="26" height="7" fill="#FFFFFF" stroke="#A9680B" stroke-width="1.2"/>
+<ellipse cx="460.0" cy="326.5" rx="1.0" ry="1.0" fill="#A9680B" stroke="none" stroke-width="1"/>
+<line x1="465" y1="326.5" x2="478" y2="326.5" fill="none" stroke="#A9680B" stroke-width="0.8"/>
+<rect x="456" y="332" width="26" height="7" fill="#FFFFFF" stroke="#A9680B" stroke-width="1.2"/>
+<ellipse cx="460.0" cy="335.5" rx="1.0" ry="1.0" fill="#A9680B" stroke="none" stroke-width="1"/>
+<line x1="465" y1="335.5" x2="478" y2="335.5" fill="none" stroke="#A9680B" stroke-width="0.8"/>
+<text x="471.0" y="361.23" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#12283B" text-anchor="middle">Proxy / broker</text>
+<text x="471.0" y="382.742" font-family="Arial, Helvetica, sans-serif" font-size="9.4" font-weight="400" fill="#516577" text-anchor="middle">Terminate exchanges</text>
+<polygon points="614,313 627,318 624,334 614,342 604,334 601,318" fill="#FFFFFF" stroke="#A9680B" stroke-width="1.3"/>
+<line x1="608" y1="327" x2="612" y2="331" fill="none" stroke="#A9680B" stroke-width="1.6"/>
+<line x1="612" y1="331" x2="621" y2="322" fill="none" stroke="#A9680B" stroke-width="1.6"/>
+<text x="616.0" y="361.23" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#12283B" text-anchor="middle">Controlled access</text>
+<text x="616.0" y="382.742" font-family="Arial, Helvetica, sans-serif" font-size="9.4" font-weight="400" fill="#516577" text-anchor="middle">Identity + permissions</text>
+<rect x="746" y="314" width="26" height="7" fill="#FFFFFF" stroke="#A9680B" stroke-width="1.2"/>
+<ellipse cx="750.0" cy="317.5" rx="1.0" ry="1.0" fill="#A9680B" stroke="none" stroke-width="1"/>
+<line x1="755" y1="317.5" x2="768" y2="317.5" fill="none" stroke="#A9680B" stroke-width="0.8"/>
+<rect x="746" y="323" width="26" height="7" fill="#FFFFFF" stroke="#A9680B" stroke-width="1.2"/>
+<ellipse cx="750.0" cy="326.5" rx="1.0" ry="1.0" fill="#A9680B" stroke="none" stroke-width="1"/>
+<line x1="755" y1="326.5" x2="768" y2="326.5" fill="none" stroke="#A9680B" stroke-width="0.8"/>
+<rect x="746" y="332" width="26" height="7" fill="#FFFFFF" stroke="#A9680B" stroke-width="1.2"/>
+<ellipse cx="750.0" cy="335.5" rx="1.0" ry="1.0" fill="#A9680B" stroke="none" stroke-width="1"/>
+<line x1="755" y1="335.5" x2="768" y2="335.5" fill="none" stroke="#A9680B" stroke-width="0.8"/>
+<text x="761.0" y="361.23" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#12283B" text-anchor="middle">Replicated data</text>
+<text x="761.0" y="382.742" font-family="Arial, Helvetica, sans-serif" font-size="9.4" font-weight="400" fill="#516577" text-anchor="middle">Historian / file staging</text>
+<line x1="862" y1="208" x2="862" y2="220" fill="none" stroke="#516577" stroke-width="1.4"/>
+<polygon points="862,220 864.3,215.8 859.7,215.8" fill="#516577"/>
+<polygon points="862,208 859.7,212.2 864.3,212.2" fill="#516577"/>
+<line x1="862" y1="282" x2="862" y2="302" fill="none" stroke="#516577" stroke-width="1.4"/>
+<polygon points="862,302 864.3,297.8 859.7,297.8" fill="#516577"/>
+<polygon points="862,282 859.7,286.2 864.3,286.2" fill="#516577"/>
+<line x1="862" y1="402" x2="862" y2="422" fill="none" stroke="#516577" stroke-width="1.4"/>
+<polygon points="862,422 864.3,417.8 859.7,417.8" fill="#516577"/>
+<polygon points="862,402 859.7,406.2 864.3,406.2" fill="#516577"/>
+<line x1="862" y1="484" x2="862" y2="496" fill="none" stroke="#516577" stroke-width="1.4"/>
+<polygon points="862,496 864.3,491.8 859.7,491.8" fill="#516577"/>
+<polygon points="862,484 859.7,488.2 864.3,488.2" fill="#516577"/>
+<line x1="862" y1="558" x2="862" y2="570" fill="none" stroke="#516577" stroke-width="1.4"/>
+<polygon points="862,570 864.3,565.8 859.7,565.8" fill="#516577"/>
+<polygon points="862,558 859.7,562.2 864.3,562.2" fill="#516577"/>
+<line x1="862" y1="632" x2="862" y2="644" fill="none" stroke="#516577" stroke-width="1.4"/>
+<polygon points="862,644 864.3,639.8 859.7,639.8" fill="#516577"/>
+<polygon points="862,632 859.7,636.2 864.3,636.2" fill="#516577"/>
+<rect x="845" y="286" width="34" height="12" fill="#A9680B" stroke="none" stroke-width="1"/>
+<text x="862.0" y="293.82599999999996" font-family="Arial, Helvetica, sans-serif" font-size="8.2" font-weight="700" fill="#FFFFFF" text-anchor="middle">FW</text>
+<rect x="845" y="406" width="34" height="12" fill="#A9680B" stroke="none" stroke-width="1"/>
+<text x="862.0" y="413.82599999999996" font-family="Arial, Helvetica, sans-serif" font-size="8.2" font-weight="700" fill="#FFFFFF" text-anchor="middle">FW</text>
+<rect x="910" y="146" width="278" height="157" fill="#F7F9FB" stroke="#D6E0E6" stroke-width="0.8"/>
+<rect x="910" y="146" width="4" height="157" fill="#205BA8" stroke="none" stroke-width="1"/>
+<text x="927" y="170.16" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#205BA8" text-anchor="start">01</text>
+<text x="956" y="171.95" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#12283B" text-anchor="start">Network segmentation</text>
+<text x="927" y="194.695" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="400" fill="#12283B" text-anchor="start">Mediate approved IT/OT exchanges</text>
+<text x="927" y="207.92" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="400" fill="#12283B" text-anchor="start">through the IDMZ. Firewall rules and</text>
+<text x="927" y="221.14499999999998" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="400" fill="#12283B" text-anchor="start">access controls enforce the boundary.</text>
+<rect x="929" y="244" width="61" height="26" fill="#FFFFFF" stroke="#205BA8" stroke-width="1.1"/>
+<text x="959.5" y="258.23" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#205BA8" text-anchor="middle">IT</text>
+<rect x="1010" y="244" width="61" height="26" fill="#FFFFFF" stroke="#A9680B" stroke-width="1.1"/>
+<text x="1040.5" y="258.23" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#A9680B" text-anchor="middle">IDMZ</text>
+<rect x="1103" y="244" width="61" height="26" fill="#FFFFFF" stroke="#167466" stroke-width="1.1"/>
+<text x="1133.5" y="258.23" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#167466" text-anchor="middle">OT</text>
+<line x1="990" y1="257" x2="1008" y2="257" fill="none" stroke="#516577" stroke-width="1.2"/>
+<polygon points="1008,257 1003.8,254.7 1003.8,259.3" fill="#516577"/>
+<polygon points="990,257 994.2,259.3 994.2,254.7" fill="#516577"/>
+<line x1="1071" y1="257" x2="1101" y2="257" fill="none" stroke="#516577" stroke-width="1.2"/>
+<polygon points="1101,257 1096.8,254.7 1096.8,259.3" fill="#516577"/>
+<polygon points="1071,257 1075.2,259.3 1075.2,254.7" fill="#516577"/>
+<text x="928" y="290.765" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="700" fill="#B64242" text-anchor="start">No direct corporate-to-control access.</text>
+<rect x="910" y="314" width="278" height="147" fill="#F7F9FB" stroke="#D6E0E6" stroke-width="0.8"/>
+<rect x="910" y="314" width="4" height="147" fill="#B64242" stroke="none" stroke-width="1"/>
+<text x="927" y="338.16" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#B64242" text-anchor="start">02</text>
+<text x="956" y="339.95" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#12283B" text-anchor="start">Limit the blast radius</text>
+<text x="927" y="362.509" font-family="Arial, Helvetica, sans-serif" font-size="11.3" font-weight="400" fill="#12283B" text-anchor="start">A compromised corporate email account</text>
+<text x="927" y="375.504" font-family="Arial, Helvetica, sans-serif" font-size="11.3" font-weight="400" fill="#12283B" text-anchor="start">should not provide a direct path to</text>
+<text x="927" y="388.499" font-family="Arial, Helvetica, sans-serif" font-size="11.3" font-weight="400" fill="#12283B" text-anchor="start">PLC logic or process setpoints. Enforced</text>
+<text x="927" y="401.494" font-family="Arial, Helvetica, sans-serif" font-size="11.3" font-weight="400" fill="#12283B" text-anchor="start">boundaries help limit lateral movement.</text>
+<text x="927" y="425.858" font-family="Arial, Helvetica, sans-serif" font-size="10.6" font-weight="400" fill="#516577" text-anchor="start">Risk reduction depends on configuration,</text>
+<text x="927" y="438.048" font-family="Arial, Helvetica, sans-serif" font-size="10.6" font-weight="400" fill="#516577" text-anchor="start">monitoring and controls within OT.</text>
+<rect x="910" y="472" width="278" height="234" fill="#F7F9FB" stroke="#D6E0E6" stroke-width="0.8"/>
+<rect x="910" y="472" width="4" height="234" fill="#665296" stroke="none" stroke-width="1"/>
+<text x="927" y="496.16" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#665296" text-anchor="start">03</text>
+<text x="956" y="497.95" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#12283B" text-anchor="start">IT/OT convergence</text>
+<text x="927" y="520.509" font-family="Arial, Helvetica, sans-serif" font-size="11.3" font-weight="400" fill="#12283B" text-anchor="start">IIoT and cloud services can cross the</text>
+<text x="927" y="533.504" font-family="Arial, Helvetica, sans-serif" font-size="11.3" font-weight="400" fill="#12283B" text-anchor="start">traditional layers. Review every path;</text>
+<text x="927" y="546.499" font-family="Arial, Helvetica, sans-serif" font-size="11.3" font-weight="400" fill="#12283B" text-anchor="start">uncontrolled bypasses create exposure.</text>
+<rect x="928" y="568" width="69" height="35" fill="#FFFFFF" stroke="#665296" stroke-width="1"/>
+<text x="962.5" y="583.021" font-family="Arial, Helvetica, sans-serif" font-size="9.7" font-weight="700" fill="#665296" text-anchor="middle">IIoT</text>
+<rect x="1011" y="568" width="69" height="35" fill="#FFFFFF" stroke="#665296" stroke-width="1"/>
+<text x="1045.5" y="580.021" font-family="Arial, Helvetica, sans-serif" font-size="9.7" font-weight="700" fill="#665296" text-anchor="middle">Gateway /</text>
+<text x="1045.5" y="591.1759999999999" font-family="Arial, Helvetica, sans-serif" font-size="9.7" font-weight="700" fill="#665296" text-anchor="middle">broker</text>
+<rect x="1100" y="568" width="69" height="35" fill="#FFFFFF" stroke="#665296" stroke-width="1"/>
+<text x="1134.5" y="583.021" font-family="Arial, Helvetica, sans-serif" font-size="9.7" font-weight="700" fill="#665296" text-anchor="middle">Cloud</text>
+<line x1="997" y1="585" x2="1009" y2="585" fill="none" stroke="#665296" stroke-width="1.2" stroke-dasharray="3 2"/>
+<polygon points="1009,585 1004.8,582.7 1004.8,587.3" fill="#665296"/>
+<line x1="1080" y1="585" x2="1098" y2="585" fill="none" stroke="#665296" stroke-width="1.2" stroke-dasharray="3 2"/>
+<polygon points="1098,585 1093.8,582.7 1093.8,587.3" fill="#665296"/>
+<text x="927" y="624.672" font-family="Arial, Helvetica, sans-serif" font-size="10.4" font-weight="700" fill="#665296" text-anchor="start">ZERO TRUST + SEGMENTATION</text>
+<text x="927" y="649.323" font-family="Arial, Helvetica, sans-serif" font-size="11.1" font-weight="400" fill="#12283B" text-anchor="start">Verify identity; grant least privilege;</text>
+<text x="927" y="662.088" font-family="Arial, Helvetica, sans-serif" font-size="11.1" font-weight="400" fill="#12283B" text-anchor="start">monitor sessions and data flows. Apply</text>
+<text x="927" y="674.853" font-family="Arial, Helvetica, sans-serif" font-size="11.1" font-weight="400" fill="#12283B" text-anchor="start">controls compatible with OT safety,</text>
+<text x="927" y="687.6179999999999" font-family="Arial, Helvetica, sans-serif" font-size="11.1" font-weight="400" fill="#12283B" text-anchor="start">availability and device capabilities.</text>
+<line x1="36" y1="724" x2="1188" y2="724" fill="none" stroke="#D6E0E6" stroke-width="1"/>
+<line x1="38" y1="739" x2="66" y2="739" fill="none" stroke="#516577" stroke-width="1.4"/>
+<polygon points="66,739 61.8,736.7 61.8,741.3" fill="#516577"/>
+<polygon points="38,739 42.2,741.3 42.2,736.7" fill="#516577"/>
+<text x="75" y="739.649" font-family="Arial, Helvetica, sans-serif" font-size="9.3" font-weight="400" fill="#516577" text-anchor="start">Logical exchange; only approved flows are permitted.</text>
+<line x1="430" y1="739" x2="458" y2="739" fill="none" stroke="#665296" stroke-width="1.2" stroke-dasharray="3 2"/>
+<polygon points="458,739 453.8,736.7 453.8,741.3" fill="#665296"/>
+<text x="467" y="739.649" font-family="Arial, Helvetica, sans-serif" font-size="9.3" font-weight="400" fill="#516577" text-anchor="start">Illustrative authenticated IIoT / cloud data path.</text>
+<text x="1188" y="739.649" font-family="Arial, Helvetica, sans-serif" font-size="9.3" font-weight="400" fill="#516577" text-anchor="end">FW = firewall  |  Level 3.5 is a security extension to the model.</text>
+<text x="36" y="758.556" font-family="Arial, Helvetica, sans-serif" font-size="9.2" font-weight="400" fill="#516577" text-anchor="start">Conceptual model, not a deployment topology. Systems may span levels; process safety requires its own engineered protections.</text>
+<a href="https://csrc.nist.gov/pubs/sp/800/82/r3/final">
+<text x="36" y="775.556" font-family="Arial, Helvetica, sans-serif" font-size="9.2" font-weight="400" fill="#516577" text-anchor="start">Sources: NIST SP 800-82 Rev. 3, Guide to OT Security</text>
+</a>
+<a href="https://www.cisco.com/c/en/us/td/docs/solutions/Verticals/CPwE/3-5-1/IDMZ/DIG/CPwE_IDMZ_2_CVD/CPwE_IDMZ_2_Chap1.html">
+<text x="481" y="775.556" font-family="Arial, Helvetica, sans-serif" font-size="9.2" font-weight="400" fill="#516577" text-anchor="start">Cisco CPwE Industrial DMZ Overview</text>
+</a>
+<text x="1188" y="775.37" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#516577" text-anchor="end">PURDUE-01  |  23 SEP 2026  |  1 / 1</text>
+</svg>

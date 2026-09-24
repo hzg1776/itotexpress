@@ -92,12 +92,21 @@
         <p class="eyebrow">THE FULL IT/OT PICTURE</p>
         <h2 id="itot-scope-heading">From business systems to the machines on your floor.</h2>
         <p class="section-intro">IT supports the business: its applications, servers, users, and office network. OT supports production: the systems that monitor and control equipment. This diagram shows how those layers connect, with controlled access between business and industrial networks.</p>
-        <figure class="itot-architecture">
-          <a class="itot-architecture-image" href="assets/cpwe-it-ot-architecture.jpg" aria-label="Open the full IT and OT architecture diagram" aria-describedby="itot-architecture-caption">
-            <img src="assets/cpwe-it-ot-architecture.jpg" width="1468" height="927" loading="lazy" decoding="async" alt="CPwE architecture showing enterprise IT and cloud services at the top, an industrial demilitarized zone between business and plant networks, site operations and distribution switches in the middle, and controllers, operator screens, drives, and I/O on the plant floor.">
-          </a>
-          <figcaption id="itot-architecture-caption"><span>Converged Plantwide Ethernet (CPwE) reference architecture, from the February 2023 Physical Infrastructure Application Guide by Cisco, Panduit, and Rockwell Automation. Each project defines the systems and work included.</span><a href="assets/cpwe-it-ot-architecture.jpg">Open full-size diagram <span aria-hidden="true">↗</span></a></figcaption>
-        </figure>
+        <div id="purdue-model" tabindex="-1">
+          <h3>The Purdue Model: understanding the IT/OT boundary</h3>
+          <p>The Purdue Model groups systems by their role, from enterprise applications at Level 5 to the physical process at Level 0. An industrial DMZ at Level 3.5 provides a controlled boundary between business and plant networks.</p>
+          <figure class="itot-architecture">
+            <a class="itot-architecture-image" href="assets/purdue-model-11x17.svg" aria-label="Open the full-size Purdue Model diagram" aria-describedby="itot-architecture-caption">
+              <img src="assets/purdue-model-11x17.svg" width="1224" height="792" loading="lazy" decoding="async" alt="Purdue Model with blue IT levels 5 and 4, an amber industrial DMZ at Level 3.5, and green OT levels 3 through 0. Examples include cloud services, ERP, controlled access, MES, SCADA, PLCs, sensors, and machinery. The adjacent notes explain segmentation, blast radius reduction, and Zero Trust.">
+            </a>
+            <figcaption id="itot-architecture-caption"><span>A conceptual reference drawing, with six functional levels and the added industrial DMZ boundary. Segmentation reduces risk when supported by appropriate configuration, access controls, and monitoring.</span><a href="assets/purdue-model-11x17.svg">Open full-size diagram <span aria-hidden="true">↗</span></a></figcaption>
+          </figure>
+          <nav class="purdue-downloads" aria-label="Download the Purdue Model drawing">
+            <a class="button" href="https://github.com/hzg1776/itotexpress/raw/refs/heads/main/resources/purdue/Purdue_Model_11x17.pdf">Download 11 × 17 PDF <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="https://github.com/hzg1776/itotexpress/raw/refs/heads/main/resources/purdue/Purdue_Model_11x17.vsdx">Download editable Visio <span aria-hidden="true">↗</span></a>
+          </nav>
+          <p class="purdue-reference-note">Free downloads hosted on GitHub. For a more detailed infrastructure example, <a href="assets/cpwe-it-ot-architecture.jpg">view the CPwE reference architecture</a> from Cisco, Panduit, and Rockwell Automation’s February 2023 guide.</p>
+        </div>
         <div class="itot-layers">
           <article><p class="eyebrow">BUSINESS IT · LEVELS 4–5</p><h3>Run the business</h3><p>Business applications, email, identity services, servers, and connections to the internet and cloud.</p></article>
           <article><p class="eyebrow">IT/OT BOUNDARY · LEVEL 3.5</p><h3>Control the connections</h3><p>An industrial demilitarized zone (IDMZ) separates business and plant networks and controls the services and traffic passing between them.</p></article>
