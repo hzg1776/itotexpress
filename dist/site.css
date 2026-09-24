@@ -572,3 +572,9 @@ main:focus-visible > section:first-child > .wrap {
 .purdue-downloads .button { white-space: normal; text-align: center; }
 .purdue-reference-note { color: var(--muted); font-size: .9375rem; margin-bottom: 32px; }
 @media (max-width: 520px) { .purdue-downloads .button { width: 100%; justify-content: center; } }
+
+/* Expandable companion register for the topology documentation example. */
+#network-topology { scroll-margin-top: 110px; }
+.topology-register { margin: 0 0 28px; }
+.topology-register > summary { cursor: pointer; padding-block: 14px; font-weight: 600; }
+.topology-register > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
