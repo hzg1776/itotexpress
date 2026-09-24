@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-24T01:27:16.745Z",
+  "checkedAt": "2026-09-24T01:55:39.623Z",
   "target": "ephemeral loopback release only",
   "pages": 7,
   "linkedResources": 29,
@@ -33,7 +33,7 @@
     "assets/purdue-model-11x17.svg": "0e918e242df8d9e51dcac46fd775014e890086ff427a8aee948dca6c332d6192",
     "favicon-20260922.png": "5a87f0f712050b771059cd727091c4e447f3200ef3c358af3510ecfe736e1afc",
     "favicon.ico": "ef2eadb89e070578f87d92e337835351feac2adbdd84e5a343ddcee671a7f9f6",
-    "index.html": "d89918de6de09588385bcc97a778355a2b67d4670281bb4b13c4b73145343811",
+    "index.html": "4c376030c501a8a23ca1ab9d6c0d50c2c2bd978cd64ae91dbbec8e4883614a81",
     "industrial-networks.html": "2531988a70eedb2594434fd18537975ab9ac86e8ee68376a117fddc4cac0c7bb",
     "network-audits.html": "4a02270b9da9124e81694571dfa98bd01d9727eb3eb5d2b3a61a49711946b0b3",
     "no-script.css": "99f990175f76f60150a7f24d69c0832096f124a99da32fd9d3f47149c3a945ef",
