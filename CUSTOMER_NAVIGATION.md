@@ -10,3 +10,5 @@ The September 23, 2026 customer-flow review identified hard-to-find drawing exam
 The existing free Zoho form was configured through its signed-in UI: the How can we help? field has alias `inquiry`, and a description block links back to https://itotexpress.com/. No submission, notification routing, required customer fields, subscription, or security settings were changed. The form remains hosted by Zoho. Its alias can remain safely if a website rollback is necessary; the return-link description can be edited in the form builder.
 
 Validation covers existing build/server tests, local references, release hashes, in-app browser desktop/mobile navigation, keyboard disclosure behavior, service selection, the actual public form prefill, and its return link. No inquiry was submitted and inbox delivery was not retested.
+
+The first live reload exposed stale shared JavaScript and CSS in an existing browser tab. Both asset references use the navigation revision query key so returning visitors request the updated files. Regenerate the service and sample pages whenever the shared asset versions change.

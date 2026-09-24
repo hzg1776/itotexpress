@@ -1,11 +1,11 @@
 {
-  "checkedAt": "2026-09-24T01:23:11.850Z",
+  "checkedAt": "2026-09-24T01:27:16.745Z",
   "target": "ephemeral loopback release only",
   "pages": 7,
   "linkedResources": 29,
   "checks": "passed",
   "sha256": {
-    "ai-analysis.html": "bea8fd5e013c7a1851297b2e7755f903cc1a6de275abbebad6b42e403a67d6ef",
+    "ai-analysis.html": "b22c2dc4cdf415f45e6a726fce74a242b7a81b0dff1e30d3cd7462ff4f2e02ea",
     "app.js": "b34f500c977103fbeb9832f5942721ba00fb78a7148697a6147ba53ec8e78ce4",
     "assets/cpwe-it-ot-architecture.jpg": "e274b2bd5de928e51c18bccdc29d3625b5b19efd3f734c44e10e7b56e600d614",
     "assets/fonts/bricolage-grotesque-700.woff2": "5dfb9136406d20807ba9cf62566dfdc5c8ec4eeef16571bb03c68ee7fe59a1b1",
@@ -33,15 +33,15 @@
     "assets/purdue-model-11x17.svg": "0e918e242df8d9e51dcac46fd775014e890086ff427a8aee948dca6c332d6192",
     "favicon-20260922.png": "5a87f0f712050b771059cd727091c4e447f3200ef3c358af3510ecfe736e1afc",
     "favicon.ico": "ef2eadb89e070578f87d92e337835351feac2adbdd84e5a343ddcee671a7f9f6",
-    "index.html": "b466e9bb5296223bf0a784d7b7109c9e7351843d1700f922f6bee02a3d562e3d",
-    "industrial-networks.html": "208c7fa72396192dfbf91ea7a896a7f3af58493e47c48a14092441f9b325d480",
-    "network-audits.html": "d57b5469a78ce2710a722f593d6c8243c5d5cf3c360bb69ae7a0d7aa92855a6d",
+    "index.html": "d89918de6de09588385bcc97a778355a2b67d4670281bb4b13c4b73145343811",
+    "industrial-networks.html": "2531988a70eedb2594434fd18537975ab9ac86e8ee68376a117fddc4cac0c7bb",
+    "network-audits.html": "4a02270b9da9124e81694571dfa98bd01d9727eb3eb5d2b3a61a49711946b0b3",
     "no-script.css": "99f990175f76f60150a7f24d69c0832096f124a99da32fd9d3f47149c3a945ef",
     "robots.txt": "a532fc0f048c50f5d30d4501907da0edc89972e44b0ff6a19a3fdf06772f3ae5",
-    "samples.html": "dbc2583411ecba8d30c55296cf32afc135c39b950f81080a9fd0f4033d516d2d",
+    "samples.html": "522fc12fe405608f01cb81d483bd3acd603185afa9ac1b6c7d2889cbc9b07c40",
     "site.css": "fae5943e3d07772a8710b10c39c8cc969ddf1f964e22edf8556ca155bf006cd0",
     "sitemap.xml": "6aefabd82bd5a959f26f45c2310bd94d7a179122e147f4ce6adb3021e7f8f1a6",
-    "technical-documentation.html": "662bae7e4ac2576b8dc63e8bd2ad838949f10fb69decc8044f02cf77db962c25",
-    "website-development.html": "ae73044797e7a5ce1c4d265e1373f64878f3d960e0be485ef66c7a7880bccb66"
+    "technical-documentation.html": "318fad59e16b90d5c32400e9e8bc8fe6f641ce41de3dd5af0a70963a08b3391a",
+    "website-development.html": "2597d3724012893a298c0c52106c266d6a4da6a5bf6834f5cb7224f27604b90b"
   }
 }
