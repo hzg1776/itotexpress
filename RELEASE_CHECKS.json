@@ -1,12 +1,12 @@
 {
-  "checkedAt": "2026-09-24T00:52:31.026Z",
+  "checkedAt": "2026-09-24T01:23:11.850Z",
   "target": "ephemeral loopback release only",
   "pages": 7,
   "linkedResources": 29,
   "checks": "passed",
   "sha256": {
-    "ai-analysis.html": "f50e35a604804fcd3f7d1304ac1fc75993a0bff6b3886eb7a9896505cce91504",
-    "app.js": "d7ea93e01174b6e8cf916695931a5fbed98faf9a4312b09cffe7373acecc3a6e",
+    "ai-analysis.html": "bea8fd5e013c7a1851297b2e7755f903cc1a6de275abbebad6b42e403a67d6ef",
+    "app.js": "b34f500c977103fbeb9832f5942721ba00fb78a7148697a6147ba53ec8e78ce4",
     "assets/cpwe-it-ot-architecture.jpg": "e274b2bd5de928e51c18bccdc29d3625b5b19efd3f734c44e10e7b56e600d614",
     "assets/fonts/bricolage-grotesque-700.woff2": "5dfb9136406d20807ba9cf62566dfdc5c8ec4eeef16571bb03c68ee7fe59a1b1",
     "assets/fonts/bricolagegrotesque-OFL.txt": "4b5a7d8f37f5602621c8a8d7358a6a2e71317e6c231c661e15aef0275d3e07ba",
@@ -33,15 +33,15 @@
     "assets/purdue-model-11x17.svg": "0e918e242df8d9e51dcac46fd775014e890086ff427a8aee948dca6c332d6192",
     "favicon-20260922.png": "5a87f0f712050b771059cd727091c4e447f3200ef3c358af3510ecfe736e1afc",
     "favicon.ico": "ef2eadb89e070578f87d92e337835351feac2adbdd84e5a343ddcee671a7f9f6",
-    "index.html": "6020b96665b3643ee482fc2fdf0157ca0631e824a43c673b653406b14a88c37f",
-    "industrial-networks.html": "f4ee08c33bf3edc6a7055fe0341b14d328155418ff0a7a4012edccd6a49a151f",
-    "network-audits.html": "c632bc8bdbe4bd19d1ef12fed8ea4355313de2791796b151010689e55672ce0b",
+    "index.html": "b466e9bb5296223bf0a784d7b7109c9e7351843d1700f922f6bee02a3d562e3d",
+    "industrial-networks.html": "208c7fa72396192dfbf91ea7a896a7f3af58493e47c48a14092441f9b325d480",
+    "network-audits.html": "d57b5469a78ce2710a722f593d6c8243c5d5cf3c360bb69ae7a0d7aa92855a6d",
     "no-script.css": "99f990175f76f60150a7f24d69c0832096f124a99da32fd9d3f47149c3a945ef",
     "robots.txt": "a532fc0f048c50f5d30d4501907da0edc89972e44b0ff6a19a3fdf06772f3ae5",
-    "samples.html": "6197351c568eb5a5dbe3c39e718766f3778349cf88055c3cb03eade97e6dde8b",
-    "site.css": "3a2baf506fd9cf40eb04f45430f85150051ea647230bbb337594d91b9874c161",
+    "samples.html": "dbc2583411ecba8d30c55296cf32afc135c39b950f81080a9fd0f4033d516d2d",
+    "site.css": "fae5943e3d07772a8710b10c39c8cc969ddf1f964e22edf8556ca155bf006cd0",
     "sitemap.xml": "6aefabd82bd5a959f26f45c2310bd94d7a179122e147f4ce6adb3021e7f8f1a6",
-    "technical-documentation.html": "c4a7518d3505cd023d3dd9e01fe8b0fd696536750545db4da71edf9d49744dab",
-    "website-development.html": "d6252361d9cbc1866ee1e5eb53286fbf73e621875f13aabd20ac801ed9f9593c"
+    "technical-documentation.html": "662bae7e4ac2576b8dc63e8bd2ad838949f10fb69decc8044f02cf77db962c25",
+    "website-development.html": "ae73044797e7a5ce1c4d265e1373f64878f3d960e0be485ef66c7a7880bccb66"
   }
 }
