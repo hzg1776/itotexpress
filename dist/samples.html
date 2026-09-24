@@ -35,7 +35,7 @@
   <p class="eyebrow">EXPERIENCE &amp; SAMPLE WORK</p><h1 id="sample-heading">The background behind the work.</h1>
   <p class="service-introduction">IT/OT Express LLC draws on its owner’s experience in manufacturing IT management, industrial network engineering, and controls consulting. Explore that background, a reporting project from a previous role, and an example of a technical deliverable.</p>
   <p class="section-intro">Professional experience below comes from previous roles. The documentation sample is fictional and labeled separately.</p>
-  <nav class="sample-links" aria-label="Experience sections"><a href="#industrial-experience">Industrial Networks</a><a href="#controls-experience">Controls Experience</a><a href="#reporting-example">Reporting Project</a><a href="#deliverable-example">Documentation Sample</a><a href="#documentation-experience">Business Systems</a></nav>
+  <nav class="sample-links" aria-label="Experience sections"><a href="#industrial-experience">Industrial Networks</a><a href="#controls-experience">Controls Experience</a><a href="#reporting-example">Reporting Project</a><a href="#deliverable-example">Documentation Sample</a><a href="technical-documentation.html#network-topology">Network Drawing Example</a><a href="#documentation-experience">Business Systems</a></nav>
 </div></section>
 <div class="wrap sample-body">
   <section id="industrial-experience" class="service-block" aria-labelledby="industrial-experience-heading" tabindex="-1">
@@ -57,7 +57,7 @@
       <article><h3>Testing and Commissioning</h3><p>Work included factory and site acceptance testing, support for bringing systems into service, and documentation used to check that systems met their requirements.</p></article>
       <article><h3>Instructions for Operators and Support Staff</h3><p>Technical procedures, training materials, and system records helped staff understand how to operate and maintain the equipment.</p></article>
     </div>
-    <a class="arrow-link" href="#contact">Discuss your plant systems <span aria-hidden="true">&rarr;</span></a>
+    <a class="arrow-link" href="#contact" data-interest="industrial">Discuss your plant systems <span aria-hidden="true">&rarr;</span></a>
   </section>
   <section id="reporting-example" class="service-block" aria-labelledby="reporting-example-heading" tabindex="-1">
     <p class="eyebrow">PROJECT FROM A PREVIOUS ROLE</p><h2 id="reporting-example-heading">From older reports to Power BI dashboards.</h2>
@@ -78,7 +78,8 @@
       <article><p class="finding-number">RECORD 03</p><h3>Reported connection fault</h3><p><strong>Observation:</strong> Staff report intermittent disconnections; the cause has not been verified.</p><p><strong>Next action:</strong> Agree on a diagnostic plan and collect evidence before recommending changes.</p><p><strong>Open item:</strong> Site contact to provide affected devices and approximate times.</p></article>
     </div>
     <p>For your project, the quote defines the records, drawings, file formats, and editable files to be delivered. Findings should distinguish confirmed observations from questions that need further investigation.</p>
-    <a class="arrow-link" href="technical-documentation.html">Discuss a documentation project <span aria-hidden="true">&rarr;</span></a>
+    <p>For a drawing and companion equipment register, <a href="technical-documentation.html#network-topology">view the network drawing example and free PDF/Visio downloads</a>.</p>
+    <a class="arrow-link" href="#contact" data-interest="documentation">Discuss a documentation project <span aria-hidden="true">&rarr;</span></a>
   </section>
   <section id="documentation-experience" class="service-block" aria-labelledby="documentation-experience-heading" tabindex="-1">
     <p class="eyebrow">BUSINESS SYSTEMS</p><h2 id="documentation-experience-heading">Business Software and Technical Documentation</h2>
@@ -99,9 +100,21 @@
         <p class="contact-intro">Describe the problem, the equipment or software involved, your city, and your preferred timing. A short summary is enough for the first inquiry.</p>
         </div>
         <div class="contact-actions">
+        <div class="contact-service js-service-choice" hidden>
+          <label for="contact-service">What can we help with? (optional)</label>
+          <select id="contact-service" aria-describedby="contact-service-note">
+            <option value="">I’m not sure yet</option>
+            <option value="network">Office networks &amp; Wi-Fi</option>
+            <option value="industrial">Industrial networks</option>
+            <option value="documentation">Technical documentation</option>
+            <option value="website">Business websites</option>
+            <option value="ai">AI &amp; automation</option>
+          </select>
+          <p id="contact-service-note">Your choice starts the inquiry message. You can edit it in the form.</p>
+        </div>
         <p class="form-open"><a class="button form-open-button" href="https://forms.zohopublic.com/helloitote1/form/ITOTExpressWebsiteInquiry/formperma/Ty7JGh3gF7uQJMt4jV_itqt_8XqnVgDB7UvajWG2b-s">Open contact form <img class="icon-light" src="assets/icons/arrow-right.svg" width="22" height="22" alt=""></a></p>
         <p class="email-fallback">Or email <a href="mailto:hello@itotexpress.com">hello@itotexpress.com</a></p>
-        <p class="contact-detail">The form opens on our form provider’s website. Please keep passwords, access codes, and confidential system records out of your first message.</p>
+        <p class="contact-detail">The short form opens on Zoho Forms and includes a link back to IT/OT Express. Please keep passwords, access codes, and confidential system records out of your first message.</p>
         <ol class="contact-next" aria-label="What happens next">
           <li><span>1</span>Send your inquiry using the form or email.</li>
           <li><span>2</span>We discuss the fit, location, timing, and next step.</li>

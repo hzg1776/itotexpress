@@ -265,7 +265,7 @@ for (const page of pages) {
           <p class="service-introduction">${escape(page.introduction)}</p>
           <div class="service-takeaway"><h2>What You Receive</h2><p>${escape(page.takeaway)}</p></div>
           <a class="button button-bright" href="#contact" data-interest="${page.interest}">${escape(page.cta)}</a></div>
-          <nav class="page-contents" aria-label="On this page"><span>On This Page</span><a href="#scope">${escape(page.sectionHeading)}</a><a href="#preparation">Getting Started</a><a href="#outputs">${escape(page.outputHeading)}</a><a href="#questions">Common Questions</a></nav>
+          <nav class="page-contents" aria-label="On this page"><span>On This Page</span><a href="#scope">${escape(page.sectionHeading)}</a><a href="#preparation">Getting Started</a><a href="#outputs">${escape(page.outputHeading)}</a>${page.interest==='documentation'?'<a href="#network-topology">Network drawing example</a>':''}<a href="#questions">Common Questions</a></nav>
         </div>
       </div>
     </section>
@@ -284,7 +284,7 @@ for (const page of pages) {
       <section id="questions" class="service-block" aria-labelledby="questions-heading" tabindex="-1"><h2 id="questions-heading">Common Questions</h2><div class="question-list">${page.faqs.map(([question, answer])=>`<article><h3>${escape(question)}</h3><p>${escape(answer)}</p></article>`).join('\n')}</div></section>
       <section class="related-services" aria-labelledby="related-heading"><h2 id="related-heading">Related Services</h2><div>${related.map(other=>`<a href="${other.file}">${escape(other.label)}</a>`).join('')}</div><p>Based in Holly Springs, serving business owners in Wake County, the Triangle and throughout North Carolina.</p></section>
     </div>
-    ${contact}
+    ${contact.replace(/(class="button form-open-button" href=")([^"]+)/, (_, prefix, url) => prefix + url + '?inquiry=' + encodeURIComponent('I would like help with ' + page.label + '.\n\n'))}
   </main>
   ${footer}
 

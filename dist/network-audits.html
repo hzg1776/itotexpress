@@ -74,9 +74,21 @@
         <p class="contact-intro">Describe the problem, the equipment or software involved, your city, and your preferred timing. A short summary is enough for the first inquiry.</p>
         </div>
         <div class="contact-actions">
-        <p class="form-open"><a class="button form-open-button" href="https://forms.zohopublic.com/helloitote1/form/ITOTExpressWebsiteInquiry/formperma/Ty7JGh3gF7uQJMt4jV_itqt_8XqnVgDB7UvajWG2b-s">Open contact form <img class="icon-light" src="assets/icons/arrow-right.svg" width="22" height="22" alt=""></a></p>
+        <div class="contact-service js-service-choice" hidden>
+          <label for="contact-service">What can we help with? (optional)</label>
+          <select id="contact-service" aria-describedby="contact-service-note">
+            <option value="">I’m not sure yet</option>
+            <option value="network">Office networks &amp; Wi-Fi</option>
+            <option value="industrial">Industrial networks</option>
+            <option value="documentation">Technical documentation</option>
+            <option value="website">Business websites</option>
+            <option value="ai">AI &amp; automation</option>
+          </select>
+          <p id="contact-service-note">Your choice starts the inquiry message. You can edit it in the form.</p>
+        </div>
+        <p class="form-open"><a class="button form-open-button" href="https://forms.zohopublic.com/helloitote1/form/ITOTExpressWebsiteInquiry/formperma/Ty7JGh3gF7uQJMt4jV_itqt_8XqnVgDB7UvajWG2b-s?inquiry=I%20would%20like%20help%20with%20Office%20Networks%20%26%20Wi-Fi.%0A%0A">Open contact form <img class="icon-light" src="assets/icons/arrow-right.svg" width="22" height="22" alt=""></a></p>
         <p class="email-fallback">Or email <a href="mailto:hello@itotexpress.com">hello@itotexpress.com</a></p>
-        <p class="contact-detail">The form opens on our form provider’s website. Please keep passwords, access codes, and confidential system records out of your first message.</p>
+        <p class="contact-detail">The short form opens on Zoho Forms and includes a link back to IT/OT Express. Please keep passwords, access codes, and confidential system records out of your first message.</p>
         <ol class="contact-next" aria-label="What happens next">
           <li><span>1</span>Send your inquiry using the form or email.</li>
           <li><span>2</span>We discuss the fit, location, timing, and next step.</li>

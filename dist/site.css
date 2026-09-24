@@ -578,3 +578,14 @@ main:focus-visible > section:first-child > .wrap {
 .topology-register { margin: 0 0 28px; }
 .topology-register > summary { cursor: pointer; padding-block: 14px; font-weight: 600; }
 .topology-register > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+/* Shorter customer path, with optional reference detail and inquiry context. */
+.reference-details { margin-top: 28px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.reference-details > summary { padding: 20px 0; cursor: pointer; font-weight: 600; color: var(--ink); }
+.reference-details[open] > summary { margin-bottom: 12px; }
+.reference-details > :last-child { margin-bottom: 24px; }
+.reference-details > summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.contact-service label { display: block; margin-bottom: 8px; font-weight: 600; }
+.contact-service select { display: block; width: 100%; min-height: 48px; padding: 10px 12px; border: 1px solid #fff; border-radius: 6px; background: #fff; color: var(--ink); font: inherit; }
+.contact-service p { margin: 8px 0 0; font-size: .9375rem; color: #E3EAFB; }
+.contact-service select:focus-visible { outline-offset: 4px; }

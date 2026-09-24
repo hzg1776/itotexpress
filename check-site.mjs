@@ -13,7 +13,10 @@ for (const [name, html] of pages) {
   assert.doesNotMatch(html, /<iframe\b/, `${name}: contact must not reserve an empty embedded-form panel`);
   assert.equal([...html.matchAll(/class="button form-open-button"/g)].length, 1, `${name}: one primary contact-form link`);
   const formLink = html.match(/<a\b[^>]*class="button form-open-button"[^>]*>([\s\S]*?)<\/a>/);
-  assert.ok(formLink?.[0].includes('href="https://forms.zohopublic.com/helloitote1/form/ITOTExpressWebsiteInquiry/formperma/Ty7JGh3gF7uQJMt4jV_itqt_8XqnVgDB7UvajWG2b-s"'), `${name}: approved contact form destination`);
+  const formUrl = new URL(formLink?.[0].match(/href="([^"]+)"/)?.[1]);
+  assert.equal(formUrl.origin + formUrl.pathname, 'https://forms.zohopublic.com/helloitote1/form/ITOTExpressWebsiteInquiry/formperma/Ty7JGh3gF7uQJMt4jV_itqt_8XqnVgDB7UvajWG2b-s', `${name}: approved contact form destination`);
+  assert.ok([...formUrl.searchParams.keys()].every(key => key === 'inquiry'), `${name}: only the public inquiry starter may be passed`);
+  if (formUrl.searchParams.has('inquiry')) assert.match(formUrl.searchParams.get('inquiry'), /^I would like help with (?:Website Development|Office Networks & Wi-Fi|Industrial Networks|Technical Documentation|AI & Automation)\.\n\n$/, `${name}: expected service context only`);
   assert.match(formLink[1].replace(/<[^>]+>/g, ''), /contact form/i, `${name}: descriptive contact link`);
   assert.doesNotMatch(html, /<link[^>]+href="https?:[^>]+rel="stylesheet"|<link[^>]+rel="stylesheet"[^>]+href="https?:/i, `${name}: styles are served locally`);
   assert.match(html, /href="mailto:hello@itotexpress.com"/, `${name}: email alternative remains available`);
