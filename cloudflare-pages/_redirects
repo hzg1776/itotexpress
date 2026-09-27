@@ -1,0 +1,8 @@
+# Canonical extensionless URLs. Cloudflare Pages' default HTML handling maps these to the .html assets.
+/index.html / 308
+/ai-analysis.html /ai-analysis 308
+/industrial-networks.html /industrial-networks 308
+/network-audits.html /network-audits 308
+/samples.html /samples 308
+/technical-documentation.html /technical-documentation 308
+/website-development.html /website-development 308

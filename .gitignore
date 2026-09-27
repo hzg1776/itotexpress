@@ -1,7 +1,9 @@
 .sites-runtime/
 node_modules/
+.wrangler/
 *.log
 qa/
 candidate/
 release/
+cloudflare-preview/
 !dist/assets/network-hero.png

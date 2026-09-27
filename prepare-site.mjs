@@ -2,10 +2,14 @@ import {cp, mkdir, readdir, readFile, writeFile, access} from 'node:fs/promises'
 import {fileURLToPath} from 'node:url';
 
 const publish=process.argv.includes('--release');
+const outputArgument=process.argv.find(value=>value.startsWith('--output='));
+const outputName=outputArgument?.slice('--output='.length) || (publish?'release':'candidate');
+if(!/^[a-z0-9-]+$/i.test(outputName)) throw Error('--output must be a single folder name containing only letters, numbers, and hyphens');
 const origin='https://itotexpress.com';
 const source=new URL('./dist/',import.meta.url);
-const destination=new URL(publish?'./release/':'./candidate/',import.meta.url);
+const destination=new URL(`./${outputName}/`,import.meta.url);
 const names=(await readdir(source)).filter(name=>name.endsWith('.html'));
+const pagePath=name=>name==='index.html'?'/':'/'+name.replace(/\.html$/,'');
 const pages=await Promise.all(names.map(async name=>[name,await readFile(new URL(name,source),'utf8')]));
 if(publish) {
   for(const [name,html] of pages) {
@@ -17,8 +21,15 @@ try {await access(destination);throw Error(`Output already exists: ${fileURLToPa
 await mkdir(destination,{recursive:true});
 await cp(source,destination,{recursive:true});
 for(const [name,input] of pages) {
-  const url=origin+(name==='index.html'?'/':'/'+name);
+  const url=origin+pagePath(name);
   let html=input.replace(/\s*<link rel="canonical"[^>]*>/g,'').replace(/\s*<meta property="og:url"[^>]*>/g,'');
+  html=html.replace(/href="([^\"]+\.html(?:[?#][^\"]*)?)"/g,(match,href)=>{
+    if(/^(?:https?:|\/\/)/i.test(href)) return match;
+    const pageName=href.split(/[?#]/,1)[0].split('/').at(-1);
+    if(!names.includes(pageName)) return match;
+    const suffix=href.slice(href.indexOf('.html')+5);
+    return `href="${pagePath(pageName)}${suffix}"`;
+  });
   html=html.replace('</head>',`  <link rel="canonical" href="${url}">\n  <meta property="og:url" content="${url}">\n</head>`);
   html=html.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/,(_,json)=>{
     const schema=JSON.parse(json);schema.url=url;schema['@id']=url+'#'+(schema['@type']==='Organization'?'organization':'content');
@@ -30,5 +41,10 @@ for(const [name,input] of pages) {
   await writeFile(new URL(name,destination),html);
 }
 await writeFile(new URL('robots.txt',destination),publish?`User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`:'User-agent: *\nDisallow: /\n');
-await writeFile(new URL('sitemap.xml',destination),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+names.map(name=>`  <url><loc>${origin}${name==='index.html'?'/':'/'+name}</loc></url>`).join('\n')+'\n</urlset>\n');
+await writeFile(new URL('sitemap.xml',destination),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+names.map(name=>`  <url><loc>${origin}${pagePath(name)}</loc></url>`).join('\n')+'\n</urlset>\n');
+if(publish) {
+  for(const name of ['404.html','_headers','_redirects','_routes.json']) {
+    await cp(new URL(`./cloudflare-pages/${name}`,import.meta.url),new URL(name,destination));
+  }
+}
 console.log(`Prepared ${pages.length} pages in ${fileURLToPath(destination)}; ${publish?'indexable release':'noindex local candidate'}. Nothing deployed.`);

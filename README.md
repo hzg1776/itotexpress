@@ -22,7 +22,7 @@ node --test build.test.mjs server.test.mjs
 
 ## Build a release
 
-Use a clean checkout with LF source files (`git -c core.autocrlf=false clone ...`).
+Use a clean checkout with LF source files (`git -c core.autocrlf=false clone ...`). The indexable output includes the Cloudflare Pages headers, legacy-path redirects and narrowly scoped retired-route configuration.
 
 ```powershell
 node prepare-site.mjs
@@ -30,7 +30,7 @@ node prepare-site.mjs --release
 node verify-release.mjs
 ```
 
-The build refuses to overwrite existing `candidate/` or `release/` directories. Preserve earlier outputs before rebuilding. Candidate is noindex; release is indexable with canonical URLs, robots and sitemap. Both are ignored build artifacts. `verify-release.mjs` serves the release on an ephemeral loopback port and records SHA-256 hashes in `RELEASE_CHECKS.json`. It never contacts production.
+The build refuses to overwrite an existing output directory. Preserve earlier outputs before rebuilding. Candidate is noindex; release is indexable with canonical URLs, robots, sitemap and Pages configuration. To create a separate Pages bundle without touching the saved release, use `node prepare-site.mjs --release --output=cloudflare-preview` and `node verify-release.mjs --output=cloudflare-preview`. Both output directories are ignored. `verify-release.mjs` serves the selected bundle on an ephemeral loopback port and records SHA-256 hashes in `RELEASE_CHECKS.json`. It never contacts production.
 
 ## Current content
 
@@ -42,4 +42,4 @@ Every page links to the existing Zoho inquiry form and `hello@itotexpress.com`. 
 
 ## Release handoff
 
-See [DEPLOYMENT_HANDOFF.md](DEPLOYMENT_HANDOFF.md) for validation and the owner-operated release sequence. GitHub publication does not deploy the site. The owner reviews and merges the PR, then controls production deployment.
+See [DEPLOYMENT_HANDOFF.md](DEPLOYMENT_HANDOFF.md) for the Cloudflare Pages preview, review gate, cutover and rollback sequence. GitHub publication does not deploy the site. The owner reviews and merges the PR, then controls production deployment.

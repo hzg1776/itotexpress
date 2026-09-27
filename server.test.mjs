@@ -63,10 +63,9 @@ test('published host handling with a noindex test candidate: files, redirects, i
     });req.on('error',reject);req.end();
   });
   try {
-    for(const name of ['','network-audits.html','industrial-networks.html','technical-documentation.html','website-development.html','ai-analysis.html','samples.html']) {
-      const response=await request('/'+name);assert.equal(response.status,200);assert.match(response.body,/<h1/);assert.doesNotMatch(response.body,/herman|goldstein|linkedin\.com|data-request=|REQUEST PREVIEW/i);
+    for(const route of ['/','/network-audits','/industrial-networks','/technical-documentation','/website-development','/ai-analysis','/samples']) {
+      const response=await request(route);assert.equal(response.status,200);assert.match(response.body,/<h1/);assert.doesNotMatch(response.body,/herman|goldstein|linkedin\.com|data-request=|REQUEST PREVIEW/i);
       assert.equal(response.headers['x-robots-tag'],undefined);
-      assert.match(response.body,new RegExp('<link rel="canonical" href="https://itotexpress.com/'+name.replaceAll('.','\\.')+'">'));
     }
     assert.match((await request('/sitemap.xml')).body,/<loc>https:\/\/itotexpress.com\/<\/loc>/);
     assert.match((await request('/robots.txt')).body,/Disallow: \//);
@@ -87,7 +86,9 @@ test('published host handling with a noindex test candidate: files, redirects, i
       assert.equal(retiredHead.status,410);assert.equal(retiredHead.body,'');
     }
     for(const p of ['/missing.html','/.git/config','/%2e%2e%5cBUSINESS_PROFILE.md','/%00','/../BUSINESS_PROFILE.md','/server.mjs']) assert.equal((await request(p)).status,404,p);
-    const redirect=await request('/network-audits.html?source=test','www.itotexpress.com');assert.equal(redirect.status,308);assert.equal(redirect.headers.location,'https://itotexpress.com/network-audits.html?source=test');
+    const redirect=await request('/network-audits.html?source=test','www.itotexpress.com');assert.equal(redirect.status,308);assert.equal(redirect.headers.location,'https://itotexpress.com/network-audits?source=test');
+    assert.equal((await request('/network-audits.html?source=test')).headers.location,'https://itotexpress.com/network-audits?source=test');
+    assert.equal((await request('/missing.html')).status,404);
     assert.equal((await request('/index.html')).headers.location,'https://itotexpress.com/');
   } finally {await new Promise(resolve=>server.close(resolve));}
 });

@@ -30,26 +30,42 @@ test('candidate and release keep distinct indexing rules and correct page URLs',
   try {
     await cp(new URL('./dist/', import.meta.url), path.join(fixture, 'dist'), {recursive: true});
     await cp(new URL('./prepare-site.mjs', import.meta.url), path.join(fixture, 'prepare-site.mjs'));
+    await cp(new URL('./cloudflare-pages/', import.meta.url), path.join(fixture, 'cloudflare-pages'), {recursive: true});
     for (const mode of ['candidate', 'release']) {
       const args = ['prepare-site.mjs', ...(mode === 'release' ? ['--release'] : [])];
       execFileSync(process.execPath, args, {cwd: fixture});
       const output = path.join(fixture, mode);
-      const files = (await readdir(output)).filter(name => name.endsWith('.html'));
+      const files = (await readdir(output)).filter(name => name.endsWith('.html') && name !== '404.html');
       assert.equal(files.length, 7);
       assert.ok(files.includes('industrial-networks.html'), 'Industrial work has a standalone service route');
       for (const name of files) {
         const html = await readFile(path.join(output, name), 'utf8');
-        const url = 'https://itotexpress.com/' + (name === 'index.html' ? '' : name);
+        const pagePath = name === 'index.html' ? '/' : '/' + name.replace(/\.html$/, '');
+        const url = 'https://itotexpress.com' + pagePath;
         assert.ok(html.includes(`<link rel="canonical" href="${url}">`));
         assert.ok(html.includes(`<meta property="og:url" content="${url}">`));
         assert.equal((html.match(/rel="canonical"/g) || []).length, 1);
         assert.ok(html.includes(`content="${mode === 'release' ? 'index, follow' : 'noindex, nofollow'}"`));
         assert.doesNotMatch(html, /fonts\.googleapis|fonts\.gstatic/);
+        if (mode === 'release') assert.doesNotMatch(html, /href="(?:\.\/)?[a-z-]+\.html(?:[#?][^"]*)?"/);
       }
       const robots = await readFile(path.join(output, 'robots.txt'), 'utf8');
       assert.match(robots, mode === 'release' ? /Allow: \/\nSitemap:/ : /Disallow: \//);
       const sitemap = await readFile(path.join(output, 'sitemap.xml'), 'utf8');
-      assert.ok(sitemap.includes('https://itotexpress.com/industrial-networks.html'), 'New service route appears in generated sitemap');
+      assert.ok(sitemap.includes('https://itotexpress.com/industrial-networks'), 'New service route appears in generated sitemap');
+      if (mode === 'release') {
+        const notFound = await readFile(path.join(output, '404.html'), 'utf8');
+        assert.match(notFound, /<meta name="robots" content="noindex, nofollow">/);
+        const redirects = await readFile(path.join(output, '_redirects'), 'utf8');
+        assert.match(redirects, /^\/index\.html \/ 308$/m);
+        assert.match(redirects, /^\/industrial-networks\.html \/industrial-networks 308$/m);
+        const routes = JSON.parse(await readFile(path.join(output, '_routes.json'), 'utf8'));
+        assert.deepEqual(routes, {version: 1, include: ['/palzivalerts', '/palzivalerts/*'], exclude: []});
+        const headers = await readFile(path.join(output, '_headers'), 'utf8');
+        for (const value of ['X-Content-Type-Options: nosniff', 'Referrer-Policy: strict-origin-when-cross-origin', 'Permissions-Policy:', 'Content-Security-Policy:']) assert.ok(headers.includes(value));
+      } else {
+        for (const name of ['_headers', '_redirects', '_routes.json']) await assert.rejects(readFile(path.join(output, name)));
+      }
       assert.throws(() => execFileSync(process.execPath, args, {cwd: fixture, stdio: 'pipe'}), 'existing output must not be overwritten');
     }
   } finally {

@@ -1,11 +1,12 @@
 {
-  "checkedAt": "2026-09-24T01:55:39.623Z",
+  "checkedAt": "2026-09-27T02:41:56.383Z",
   "target": "ephemeral loopback release only",
   "pages": 7,
   "linkedResources": 29,
   "checks": "passed",
   "sha256": {
-    "ai-analysis.html": "b22c2dc4cdf415f45e6a726fce74a242b7a81b0dff1e30d3cd7462ff4f2e02ea",
+    "404.html": "d8e7a12db2155015def6511c6ecfbababeaaded6a5a0370469eae0a4f95aba5c",
+    "ai-analysis.html": "abc68d503470216652c8cefcb5fd5fc7ebeb489efb69931e93a45c52aa7453fc",
     "app.js": "b34f500c977103fbeb9832f5942721ba00fb78a7148697a6147ba53ec8e78ce4",
     "assets/cpwe-it-ot-architecture.jpg": "e274b2bd5de928e51c18bccdc29d3625b5b19efd3f734c44e10e7b56e600d614",
     "assets/fonts/bricolage-grotesque-700.woff2": "5dfb9136406d20807ba9cf62566dfdc5c8ec4eeef16571bb03c68ee7fe59a1b1",
@@ -33,15 +34,19 @@
     "assets/purdue-model-11x17.svg": "0e918e242df8d9e51dcac46fd775014e890086ff427a8aee948dca6c332d6192",
     "favicon-20260922.png": "5a87f0f712050b771059cd727091c4e447f3200ef3c358af3510ecfe736e1afc",
     "favicon.ico": "ef2eadb89e070578f87d92e337835351feac2adbdd84e5a343ddcee671a7f9f6",
-    "index.html": "4c376030c501a8a23ca1ab9d6c0d50c2c2bd978cd64ae91dbbec8e4883614a81",
-    "industrial-networks.html": "2531988a70eedb2594434fd18537975ab9ac86e8ee68376a117fddc4cac0c7bb",
-    "network-audits.html": "4a02270b9da9124e81694571dfa98bd01d9727eb3eb5d2b3a61a49711946b0b3",
+    "index.html": "a0b09efaa162cf25278308b3c9ee0eb12a5496da8e059087f1b607f9c617efb6",
+    "industrial-networks.html": "65d676b614cf7445734d979fea84ba550daf1befaef43ac745420166d0825f30",
+    "network-audits.html": "437680207f4a510f6827417ce95c4d8bf2c6a62ebcbef2f7f62171bbd95a8232",
     "no-script.css": "99f990175f76f60150a7f24d69c0832096f124a99da32fd9d3f47149c3a945ef",
     "robots.txt": "a532fc0f048c50f5d30d4501907da0edc89972e44b0ff6a19a3fdf06772f3ae5",
-    "samples.html": "522fc12fe405608f01cb81d483bd3acd603185afa9ac1b6c7d2889cbc9b07c40",
+    "samples.html": "6336e0a6edb39750dff5a7cff1b008f2d8a8bebd19cf781a54b3b0393a637a97",
     "site.css": "fae5943e3d07772a8710b10c39c8cc969ddf1f964e22edf8556ca155bf006cd0",
-    "sitemap.xml": "6aefabd82bd5a959f26f45c2310bd94d7a179122e147f4ce6adb3021e7f8f1a6",
-    "technical-documentation.html": "318fad59e16b90d5c32400e9e8bc8fe6f641ce41de3dd5af0a70963a08b3391a",
-    "website-development.html": "2597d3724012893a298c0c52106c266d6a4da6a5bf6834f5cb7224f27604b90b"
+    "sitemap.xml": "d4f023bfe6f5f655ff3ab72ee2be0e4da66e845e71a134a9c42d0b4c7ba775aa",
+    "technical-documentation.html": "2a38c6ed86441b4ae80d1f08c784dd8cb6acdfaca04241ca3eaafa3af8102b2e",
+    "website-development.html": "b9aa9ae7cbd7b5ba2dc9d6ff6cdcc766deb2e813788b7b9557b3245cff641842",
+    "_headers": "757ac38926eee7493c784dcb9347046d6129611ebb939c5bf950973ccf876f25",
+    "_redirects": "bc74e5631a0ebed100dcfa1521b8726026211ca2c13ded0388dabc7bcf81e5ed",
+    "_routes.json": "603c8730213aaf7f3fc4b6bac55b567fefcf6d5b9d6147daea186dcd5f285328",
+    "functions/palzivalerts/[[path]].ts": "0dcae0262aea3bd0b819a46d4efbcedd22051b45bc19b61084984fa0119d7a4e"
   }
 }

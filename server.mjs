@@ -42,9 +42,22 @@ export async function createSiteServer({directory, port=4180, published=false}={
       if (decoded.includes('\\') || decoded.includes('\0') || decoded.split('/').some(p=>p.startsWith('.'))) return finish(404,'Not found');
       if (/^\/palzivalerts(?:\/|$)/i.test(decoded)) return finish(410,'This project has been retired.');
       if (published && (host==='www.itotexpress.com' || decoded==='/index.html')) {
-        res.writeHead(308,{Location:`https://itotexpress.com${decoded==='/index.html' ? '/' : url.pathname}${url.search}`});return res.end();
+        const canonicalPath=decoded==='/index.html'?'/':decoded.replace(/\.html$/,'');
+        res.writeHead(308,{Location:`https://itotexpress.com${canonicalPath}${url.search}`});return res.end();
       }
-      const candidate = path.resolve(root,'.'+(decoded==='/'?'/index.html':decoded));
+      if (published && decoded.endsWith('.html')) {
+        const legacyPath=path.resolve(root,'.'+decoded);
+        if(inside(legacyPath)) {
+          try {
+            const legacyFile=await realpath(legacyPath);
+            if(inside(legacyFile) && (await stat(legacyFile)).isFile()) {
+              res.writeHead(308,{Location:`https://itotexpress.com${decoded.replace(/\.html$/,'')}${url.search}`});return res.end();
+            }
+          } catch {}
+        }
+      }
+      const routePath=decoded==='/'?'/index.html':decoded.endsWith('/')?decoded+'index.html':path.extname(decoded)?decoded:decoded+'.html';
+      const candidate = path.resolve(root,'.'+routePath);
       if (!inside(candidate) || !types[path.extname(candidate)]) return finish(404,'Not found');
       const file = await realpath(candidate);
       if (!inside(file)) return finish(404,'Not found');

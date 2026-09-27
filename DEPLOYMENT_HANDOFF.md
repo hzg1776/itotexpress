@@ -1,22 +1,80 @@
-# Buyer-focused website release
+# Cloudflare Pages release and migration
 
-This revision rewrites the website in clear English and organizes it around a business owner's hiring questions. It adds a dedicated industrial-network page, a four-stage project process, clearer scope descriptions and a labeled fictional documentation excerpt. It retains prior-role attribution for professional experience. Unknown commercial details are omitted.
+## Review gate
 
-## Validation
+Keep the owner review and merge requirement for every production release. Do not attach the public domain or stop the Windows host and Cloudflare Tunnel while the PR or preview is still under review.
 
-- Seven pages and 285 local references pass static checks.
-- All five build/server tests pass.
-- Release verification checks all seven routes, linked assets, indexing directives, canonical URLs, contact links, redirects, 404 and 410 responses. `RELEASE_CHECKS.json` records the release file hashes.
-- Browser review covered all seven pages at 1440, 768 and 390px, plus the homepage at 320px, with no horizontal overflow or captured console errors. Navigation, anchors and menu dismissal were checked.
-- The contact form opened correctly. No new message was submitted; delivery and response time were not tested.
+From a clean checkout of the proposed commit, run:
 
-## Owner-operated publication
+```powershell
+node check-site.mjs
+node --test build.test.mjs server.test.mjs
+node prepare-site.mjs --release --output=cloudflare-preview
+node verify-release.mjs --output=cloudflare-preview
+```
 
-1. Review and merge the website PR into `main`. Record the merged commit SHA.
-2. In a fresh non-production checkout of that exact SHA, use `git -c core.autocrlf=false clone` to preserve LF source bytes. Save the committed `RELEASE_CHECKS.json` before running the verifier, which writes a new timestamped report.
-3. Run `node check-site.mjs`, `node --test build.test.mjs server.test.mjs`, `node prepare-site.mjs --release`, and `node verify-release.mjs`. Compare the SHA-256 map with the saved committed manifest; all file names and hashes must match.
-4. Using the owner's existing hosting procedure, confirm the active static release location and preserve a full rollback copy outside the public web root. Replace the complete static release with the verified artifact. This change does not require server, DNS, tunnel, credential or hosting-configuration changes.
-5. Check all seven public pages and linked assets, including `/industrial-networks.html`; confirm robots/sitemap, contact destinations, canonical redirects and expected 404/410 responses. Compare public response bodies with the manifest where applicable. Restore the backup if validation fails.
-6. Record the deployed commit, verification result and rollback location. Do not report publication complete before these checks.
+Start the Cloudflare runtime in one terminal, then run its integration checks in a second terminal:
 
-The agent prepared and checked this release locally. Production deployment remains owner-operated under the repository rules; no production access or deployment was performed for this revision.
+```powershell
+npx --yes wrangler@4.141.0 pages dev cloudflare-preview --ip 127.0.0.1 --port 8788 --compatibility-date=2026-09-26
+```
+
+```powershell
+node --test cloudflare-pages.runtime.test.mjs
+```
+
+The preview bundle keeps the current CSP and other security headers, returns 410 from `/palzivalerts` and its descendants, and redirects the seven legacy `.html` paths to extensionless canonical URLs. The Pages Function is limited by `_routes.json` to that retired path, so normal pages and assets stay static. Preview hosts on `pages.dev` receive `X-Robots-Tag: noindex, nofollow`.
+
+Deploy a branch preview with Wrangler from this repository root, where the `functions/` directory is present:
+
+```powershell
+npx --yes wrangler@4.141.0 pages deploy cloudflare-preview --project-name <pages-project> --branch=pages-preview
+```
+
+Run the same runtime tests against the deployed branch URL so they check Cloudflare's actual headers and Functions. In PowerShell, set `PAGES_PREVIEW_URL` to `https://<branch>.<project>.pages.dev`, run `node --test cloudflare-pages.runtime.test.mjs`, then clear that environment variable.
+
+Use the existing Pages project if one is available. If a project must be created, authenticate Wrangler and select the Cloudflare account that owns the `itotexpress.com` zone. Pages custom domains require the Pages project and zone to be in the same account. Keep the project on Cloudflare Free. Use Wrangler for deployments because dashboard drag-and-drop does not compile a Pages Functions directory. Direct Upload remains manually controlled and does not install a GitHub deployment app. A Direct Upload project cannot later be converted to Git integration; switching workflows later would require creating a separate project.
+
+Review the actual branch preview before merging the PR. Confirm:
+
+- All seven pages render at `/`, `/network-audits`, `/industrial-networks`, `/technical-documentation`, `/website-development`, `/ai-analysis`, and `/samples`.
+- `/index.html` redirects to `/`; each old page `.html` URL redirects to its extensionless path and preserves the query string.
+- Static page and asset responses retain `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, and the current Content Security Policy.
+- `/palzivalerts`, `/palzivalerts/employee`, and `/palzivalerts/hr` return 410 with the security headers.
+- The Zoho contact link opens the existing public form. Do not submit a test inquiry.
+- `robots.txt`, the sitemap and the preview's `noindex` response header are correct.
+
+The contact link navigates to Zoho Forms; it is not a form submission endpoint on Pages. The CSP keeps `form-action 'none'` because this site has no HTML form posting data from its origin.
+
+## Production cutover
+
+After the owner approves and merges the PR, build and verify again from the exact merged `main` commit. Deploy that build to the Pages production branch with Wrangler, then verify the production `pages.dev` address before attaching custom domains.
+
+Before switching DNS, save a copy of the current zone DNS records and record the active tunnel hostname, local release path, server process, and startup mechanism. Add a Cloudflare Single Redirect for the `www` hostname:
+
+- Request URL: `https://www.itotexpress.com/*`
+- Target URL: `https://itotexpress.com/${1}`
+- Status code: `308`
+- Preserve query string: enabled
+
+Test the `www` redirect while the current apex site is still available. Then associate both `itotexpress.com` and `www.itotexpress.com` with the Pages project. The `www` redirect runs before Pages and makes the apex hostname canonical; keeping both Pages hostnames attached lets `www` continue resolving if that rule is later disabled. Verify the final redirects, seven pages, security headers, 410 response, sitemap and Zoho form on the public host.
+
+Cloudflare Free supports 20,000 Pages files and 25 MiB per asset. The current release has 38 files and its largest asset is 380,665 bytes; Pages adds three control files and a custom `404.html`. Static asset requests are free and unlimited. The retired-route Function is deliberately the only route that invokes a Function and counts toward the Workers Free request quota.
+
+## Retire the old host
+
+Only after the public-domain checks pass, stop and disable the local Node server and its startup task/service, remove the host's Cloudflare Tunnel route and credentials, and confirm the tunnel no longer serves the domain. Keep the previous release and a DNS/tunnel configuration snapshot outside the repository and public web root for rollback; keep any credential backup only in the owner's private credential storage. Record the merged commit, Pages deployment URL, check results and retirement actions.
+
+If a public check fails, restore the saved tunnel DNS target and re-enable the previous host. Do not remove the fallback until the Pages cutover is verified.
+
+## Cloudflare references
+
+- [Pages limits](https://developers.cloudflare.com/pages/platform/limits/)
+- [Pages custom domains](https://developers.cloudflare.com/pages/configuration/custom-domains/)
+- [Pages serving behavior and HTML URL redirects](https://developers.cloudflare.com/pages/configuration/serving-pages/)
+- [Pages response headers](https://developers.cloudflare.com/pages/configuration/serving-pages/)
+- [Pages redirects](https://developers.cloudflare.com/pages/configuration/redirects/)
+- [Pages Functions routing and static-route exclusions](https://developers.cloudflare.com/pages/functions/routing/)
+- [Pages Functions pricing](https://developers.cloudflare.com/pages/functions/pricing/)
+- [Pages Direct Upload](https://developers.cloudflare.com/pages/get-started/direct-upload/)
+- [Cloudflare Single Redirects](https://developers.cloudflare.com/rules/url-forwarding/single-redirects/)
